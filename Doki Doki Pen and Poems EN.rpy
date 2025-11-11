@@ -1,4 +1,4 @@
-# This MAS submod was created by Discord user @uuum_muuu. If you need anything, you can DM me. I also want to thank ChatGPT for the English translation and help with programming this mod, as my coding skills are quite limited.
+# This MAS submod was created by Muuu. I want to thank ChatGPT for the English translation and help with programming this mod, as my coding skills are quite limited.
 
 init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_tomatina", category=['events'], prompt="What do you think of La Tomatina, Monika?", pool=True, unlocked=True))
