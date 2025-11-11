@@ -1,4 +1,4 @@
-# Este submod de Monika After Story ha sido creado por el usuario de discord @uuum_muuu. Cualquier cosa que necesites puedes hacerme MD, aunque a ser posible mejor escribe por el canal del submod en el servidor oficial de MAS. Quiero agradecer también a ChatGPT por la traducción al inglés y por la ayuda en la programación de este mod debido a que mis habilidades de programación son bastante limitadas.
+# Este submod de Monika After Story ha sido creado por el usuario de discord @uuum_muuu. Cualquier cosa que necesites puedes hacerme MD. Quiero agradecer también a ChatGPT por la traducción al inglés y por la ayuda en la programación de este mod debido a que mis habilidades de programación son bastante limitadas.
 
 
 init 5 python:
