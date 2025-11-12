@@ -1,3 +1,15 @@
+init -990 python in mas_submod_utils:
+    Submod(
+        author="Muuu",
+        name="Pen and Poems",
+        description="A simple mod that adds more dialogues.",
+        version="1.0.0",
+        dependencies={},
+        settings_pane=None,
+        version_updates={}
+    )
+
+
 # This MAS submod was created by Muuu. I want to thank ChatGPT for the English translation and help with programming this mod, as my coding skills are quite limited.
 
 init 5 python:
