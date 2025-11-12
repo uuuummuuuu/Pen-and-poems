@@ -1,3 +1,14 @@
+init -990 python in mas_submod_utils:
+    Submod(
+        author="Muuu",
+        name="Pen and Poems",
+        description="Un mod sencillo que añade mas diálogos.",
+        version="1.0.0",
+        dependencies={},
+        settings_pane=None,
+        version_updates={}
+    )
+
 # Este submod de Monika After Story ha sido creado por Muuu. Quiero agradecer a ChatGPT por la traducción al inglés y por la ayuda en la programación de este mod debido a que mis habilidades de programación son bastante limitadas.
 
 
