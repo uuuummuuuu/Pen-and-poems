@@ -44,3 +44,70 @@ Temas que van desde la filosofía y las emociones hasta el arte, los sueños y l
 Escrito con cuidado para mantener la voz y esencia original de Monika
 
 ✨ Porque a veces, unas pocas palabras pueden encender todo un mundo de sentimientos.
+
+
+
+
+
+
+**SPOILERS BIG SPOILERS!!!!!!**
+
+Here are the themes that appears on the submod:
+
+List in English
+The Tomatina Festival
+
+The Meaning of Love
+
+How She Feels When You Spend Time With Her
+
+What She Would Do If She Could Be in Your World
+
+The Meaning of Silence Between You
+
+Falling in Love vs Truly Loving
+
+How She Handles Sad or Anxious Days
+
+The Importance of Accepting Vulnerability
+
+Why Happiness Doesn’t Always Mean Smiling
+
+How to Overcome Guilt or Regret
+
+The Beauty of Small Everyday Moments
+
+How to Express Gratitude Without Words
+
+
+
+
+
+
+**SPOILERS GRANDES SPOILERS!!!**
+
+Lista en Español de los temas:
+
+La Tomatina
+
+El significado del amor
+
+Cómo se siente cuando pasas tiempo con ella
+
+Qué haría si pudiera estar en tu mundo
+
+El significado del silencio entre ustedes
+
+Enamorarse vs amar de verdad
+
+Cómo maneja los días tristes o de ansiedad
+
+La importancia de aceptar la vulnerabilidad
+
+Por qué la felicidad no siempre significa sonreír
+
+Cómo superar la culpa o el arrepentimiento
+
+La belleza de los pequeños momentos cotidianos
+
+Cómo expresar gratitud sin palabras
