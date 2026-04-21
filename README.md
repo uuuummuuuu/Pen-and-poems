@@ -3,7 +3,7 @@
 ✨ Doki Doki: Pen and Poems ✨
 A Monika After Story submod by Muuu 💚
 
-🖋️ Doki Doki: Pen and Poems invites you to explore 25 brand-new conversations with Monika.
+🖋️ Doki Doki: Pen and Poems invites you to explore brand-new conversations with Monika.
 
 This submod is fully available in English and Spanish, allowing you to enjoy heartfelt dialogues no matter which language you feel closest to. 🌸
 
@@ -11,7 +11,7 @@ Through these talks, you’ll discover new sides of Monika: her thoughts on crea
 
 📘 Features
 
-25 new dialogues in English and Spanish
+New dialogues in English and Spanish
 
 Topics range from philosophy and emotions to art, dreams, and everyday warmth
 
@@ -37,7 +37,7 @@ A través de estas charlas, descubrirás nuevas facetas de Monika: su forma de v
 
 📘 Características
 
-25 diálogos nuevos en inglés y español
+Diálogos nuevos en inglés y español
 
 Temas que van desde la filosofía y las emociones hasta el arte, los sueños y la vida cotidiana
 
