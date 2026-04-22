@@ -47,7 +47,7 @@ Escrito con cuidado para mantener la voz y esencia original de Monika
 
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 **SPOILERS BIG SPOILERS!!!!!!**
@@ -80,7 +80,7 @@ The Beauty of Small Everyday Moments
 How to Express Gratitude Without Words
 
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
