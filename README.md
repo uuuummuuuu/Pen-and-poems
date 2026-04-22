@@ -28,7 +28,7 @@ Thoughtfully written to stay true to Monika’s personality and voice
 ✨ Doki Doki: Pluma y Poemas ✨
 Un submod de Monika After Story creado por Muuu 💚
 
-🖋️ Doki Doki: Pen and Poems te invita a compartir 25 nuevas conversaciones con Monika.
+🖋️ Doki Doki: Pen and Poems te invita a compartir nuevas conversaciones con Monika.
 
 Este submod está completamente disponible en inglés y español, para que puedas disfrutar de cada diálogo en el idioma que más te haga sentir cerca de ella. 🌸
 
