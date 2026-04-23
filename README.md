@@ -45,14 +45,4 @@ Escrito con cuidado para mantener la voz y esencia original de Monika
 
 ✨ Porque a veces, unas pocas palabras pueden encender todo un mundo de sentimientos.
 
-
-
 -----------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-Cómo superar la culpa o el arrepentimiento
-
-La belleza de los pequeños momentos cotidianos
-
-Cómo expresar gratitud sin palabras
