@@ -3,7 +3,7 @@ init -990 python in mas_submod_utils:
         author="Muuu",
         name="Pen and Poems",
         description="A simple mod that adds more dialogues.",
-        version="1.1f.1",
+        version="1.1.1",
         dependencies={},
         settings_pane=None,
         version_updates={}
