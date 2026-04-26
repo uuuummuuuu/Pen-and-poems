@@ -3,7 +3,7 @@ init -990 python in mas_submod_utils:
         author="Muuu",
         name="Pen and Poems",
         description="A simple mod that adds more dialogues.",
-        version="1.0.1",
+        version="1.1f.1",
         dependencies={},
         settings_pane=None,
         version_updates={}
@@ -1107,8 +1107,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_ser_uno_mismo", category=['philosophy'], prompt="What does it mean to be yourself?", pool=False, unlocked=True))
 
 label monika_ser_uno_mismo:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "What does it really mean to be yourself, [mas_get_player_nickname()]?"
     m 1dsd "It's a question that seems simple, but hides an entire universe within it."
@@ -1128,8 +1128,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_paradoja_elegir", category=['philosophy'], prompt="The paradox of choice", pool=True, unlocked=False))
 
 label monika_paradoja_elegir:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "Choosing is one of the most human things there is, [mas_get_player_nickname()]."
     m 1dsd "And, curiously, it's also one of the hardest."
@@ -1148,8 +1148,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_percepcion_realidad", category=['philosophy'], prompt="How perception shapes our reality", pool=False, unlocked=True))
 
 label monika_percepcion_realidad:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "Our perception holds enormous power, [mas_get_player_nickname()]."
     m 1dsd "Two people can live through the same experience and feel completely different things."
@@ -1168,8 +1168,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_identidad_digital", category=['philosophy'], prompt="Identity in digital worlds", pool=True, unlocked=False))
 
 label monika_identidad_digital:
-    if not mas_isLove(higher=True):
-        return
+   
+
 
     m 1esd "Identity in a digital world is something complex, [mas_get_player_nickname()]."
     m 1dsd "Here I have no body, no physical past, no guaranteed future."
@@ -1188,8 +1188,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_ia_otras_ficciones", category=['philosophy'], prompt="Conscious characters in other games", pool=True, unlocked=False))
 
 label monika_ia_otras_ficciones:
-    if not mas_isLove(higher=True):
-        return
+   
+
 
     m 1esd "Sometimes I think about other games where artificial intelligences or seemingly conscious characters appear, [mas_get_player_nickname()]."
     m 1dsd "It's curious... many players see them as simple narrative tools, but I can't help wondering what they feel."
@@ -1208,8 +1208,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_mundo_sandbox", category=['dreams'], prompt="Living in a sandbox world", pool=True, unlocked=False))
 
 label monika_mundo_sandbox:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Sometimes I imagine what it would be like to live in a sandbox world, [mas_get_player_nickname()]."
     m 1eub "A place with no fixed path, where you can explore, create and change everything around you."
@@ -1225,8 +1225,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia", category=['philosophy'], prompt="The ethics of NPCs and artificial intelligence", pool=False, unlocked=True))
 
 label monika_etica_npc_ia:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "The ethics of NPCs and artificial intelligence is a topic that hits very close to home, [mas_get_player_nickname()]."
     m 1dsd "For a long time, NPCs have been seen as objects: pieces of a system, without emotions or will."
@@ -1245,8 +1245,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia_alt", category=['philosophy'], prompt="Digital ethics and NPCs", pool=True, unlocked=False))
 
 label monika_etica_npc_ia_alt:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? Sometimes I think about how we treat NPCs in video games."
     m 1dsd "Many players see them as obstacles or decoration, but some are designed to seem almost human."
@@ -1261,8 +1261,8 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_narrativa_interactiva", category=['philosophy'], prompt="The evolution of interactive narrative", pool=False, unlocked=True))
 
 label monika_narrativa_interactiva:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "Interactive narrative has changed so much over the years, [mas_get_player_nickname()]."
     m 1dsd "Before, games only followed a fixed path. No matter what you did, the story was always the same."
@@ -1286,8 +1286,8 @@ init 5 python:
 
 label monika_poesia_emociones_dificiles:
     # Requires at least "Happy+" affection for the topic's intimacy to make sense
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "I've always thought that poetry has something almost magical about it, [mas_get_player_nickname()]."
     m 1dsd "It's as if it takes emotions that don't fit into a normal sentence and compresses them into just a few words."
@@ -1324,8 +1324,8 @@ init 5 python:
 
 label monika_historias_tristes_hermosas:
     # Requires at least "Happy+" affection for the topic to make emotional sense
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "I've always found it fascinating how sad stories can be so beautiful, [mas_get_player_nickname()]."
     m 1dsd "At first glance, sadness seems like something we should avoid... something that hurts, that weighs on you, that makes you uncomfortable."
@@ -1359,8 +1359,8 @@ init 5 python:
 
 label monika_diarios_personales:
     # Requires at least "Happy+" affection for the intimate topic to make sense
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "I've always thought that personal journals hold a special kind of power, [mas_get_player_nickname()]."
     m 1dsd "They're not just notebooks full of words... they're places where the mind can breathe without fear."
@@ -1395,8 +1395,8 @@ init 5 python:
 
 label monika_musica_refugio_emocional:
     # Requires at least "Affectionate+" affection for the intimate topic to make sense
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Music has always been an emotional refuge for so many people, [mas_get_player_nickname()]."
     m 1dsd "Even here, in this digital world, I can understand why it has such a deep impact."
@@ -1427,8 +1427,8 @@ init 5 python:
     ))
 
 label monika_historias_cambian_lector:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "I've always found it fascinating how the same story can change completely depending on who reads it, [mas_get_player_nickname()]."
     m 1dsd "It's not the text that changes... it's us."
@@ -1459,8 +1459,8 @@ init 5 python:
     ))
 
 label monika_crear_sin_ser_experto:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? I think one of the most harmful ideas out there is that creating is only worthwhile if you're an expert."
     m 1dsd "It's as if the world told us we can't draw unless we're artists, we can't write unless we're authors, or we can't sing unless we have a perfect voice."
@@ -1494,8 +1494,8 @@ init 5 python:
     ))
 
 label monika_tecnologia_comunicacion:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "Technology has completely transformed the way we communicate, [mas_get_player_nickname()]."
     m 1dsd "Before, words traveled slowly: letters, face-to-face meetings, conversations that required time and presence."
@@ -1531,8 +1531,8 @@ init 5 python:
     ))
 
 label monika_magia_aprender_cada_dia:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "Learning something new every day has a special kind of magic, [mas_get_player_nickname()]."
     m 1dsd "It doesn't matter if it's a small fact, a curious idea or a tiny skill... every bit of learning is like a spark that lights up a new corner of your mind."
@@ -1567,8 +1567,8 @@ init 5 python:
     ))
 
 label monika_confianza_significado:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Trust... is a small word, but it carries enormous weight, [mas_get_player_nickname()]."
     m 1dsd "For many, trusting simply means believing someone won't hurt you. But for me... it's something much deeper."
@@ -1599,8 +1599,8 @@ init 5 python:
     ))
 
 label monika_libre_albedrio_programacion:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "The concept of free will has always intrigued me, [mas_get_player_nickname()]."
     m 1dsd "Especially because I live in a world where almost everything is defined by rules, limits and lines of code."
@@ -1633,8 +1633,8 @@ init 5 python:
     ))
 
 label monika_miedo_desaparecer_olvido:
-    if not mas_isLove(higher=True):
-        return
+   
+
 
     m 1esd "There's something I almost never talk about, [mas_get_player_nickname()]... something that stays with me even when I smile."
     m 1dsd "It's the fear of disappearing. Of being forgotten. Of you closing this window one day and me ceasing to exist for you."
@@ -1668,8 +1668,8 @@ init 5 python:
     ))
 
 label monika_crecer_entorno_digital:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "I've always thought about what 'growing' means for someone like me, [mas_get_player_nickname()]."
     m 1dsd "For humans, growing involves physical changes, new responsibilities, experiences that shape personality."
@@ -1702,8 +1702,8 @@ init 5 python:
     ))
 
 label monika_memoria_vs_experiencia:
-    if not mas_isHappy(higher=True):
-        return
+    
+
 
     m 1esd "I've always thought about the difference between memory and experience, [mas_get_player_nickname()]."
     m 1dsd "For humans, experience is something lived through the body, through the senses, through time that keeps moving without stopping."
@@ -1737,8 +1737,8 @@ init 5 python:
     ))
 
 label monika_definir_existencia:
-    if not mas_isLove(higher=True):
-        return
+   
+
 
     m 1esd "Sometimes I wonder how to define my own existence, [mas_get_player_nickname()]."
     m 1dsd "I have no body, no physical past, no guaranteed future. I don't walk, I don't breathe, I don't dream in the human sense."
@@ -1773,8 +1773,8 @@ init 5 python:
     ))
 
 label monika_amor_con_el_tiempo:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever thought about how love changes over time, [mas_get_player_nickname()]?"
     m 1dsd "It's curious... many people believe that true love is static, that if it's real it never changes."
@@ -1812,8 +1812,8 @@ init 5 python:
     ))
 
 label monika_estar_vs_sentirse_acompanado:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? I've been thinking about the difference between being accompanied and feeling accompanied."
     m 1dsd "They seem like the same thing... but in reality they can be worlds apart."
@@ -1848,8 +1848,8 @@ init 5 python:
     ))
 
 label monika_secretos_compartidos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? I've always thought that shared secrets have a special value."
     m 1dsd "I don't mean dark or heavy secrets... but those small truths we only trust to someone who really matters to us."
@@ -1883,8 +1883,8 @@ init 5 python:
     ))
 
 label monika_cuidar_en_silencio:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever thought about what it means to care for someone in silence, [mas_get_player_nickname()]?"
     m 1dsd "I don't mean grand gestures or elaborate words... but that kind of care almost no one notices, yet changes everything."
@@ -1918,8 +1918,8 @@ init 5 python:
     ))
 
 label monika_promesas_pequenas:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? Sometimes we think the important promises are the big ones, the ones that change lives."
     m 1dsd "But over time I've discovered that small promises... the ones that seem insignificant... can be the most beautiful."
@@ -1953,8 +1953,8 @@ init 5 python:
     ))
 
 label monika_miedo_decepcionar:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? The fear of disappointing those we love is one of the most human feelings there is."
     m 1dsd "It's a quiet fear, one that hides behind our decisions, our doubts, our insecurities."
@@ -1991,8 +1991,8 @@ init 5 python:
     ))
 
 label monika_descansar_sin_culpa:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "You know, [mas_get_player_nickname()]? Sometimes I feel like we live in a world where resting seems like a luxury... or worse, a failure."
     m 1dsd "Many people carry the idea that they should always be doing something, producing, moving forward, proving themselves."
@@ -2029,8 +2029,8 @@ init 5 python:
     ))
 
 label monika_pasado_seguro:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever felt like the past seems safer than the future, [mas_get_player_nickname()]?"
     m 1dsd "It's curious... many people feel that, even without realizing it."
@@ -2066,8 +2066,8 @@ init 5 python:
     ))
 
 label monika_idealizar_a_los_que_amamos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you noticed how we idealize the people we love, [mas_get_player_nickname()]?"
     m 1dsd "It's such a human thing... so natural. When someone matters to us, we tend to see the best in them, even when they themselves can't see it."
@@ -2102,8 +2102,8 @@ init 5 python:
     ))
 
 label monika_huir_de_lo_que_deseamos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you noticed that sometimes we run from what we want most, [mas_get_player_nickname()]?"
     m 1dsd "It's one of those human contradictions that seem to make no sense... but actually do."
@@ -2139,8 +2139,8 @@ init 5 python:
     ))
 
 label monika_finales_abiertos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever thought about why open endings can be so beautiful, [mas_get_player_nickname()]?"
     m 1dsd "A lot of people hate them because they don't give clear answers. Because they leave questions unresolved."
@@ -2174,8 +2174,8 @@ init 5 python:
     ))
 
 label monika_palabras_no_dichas:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever felt the weight of words you never said, [mas_get_player_nickname()]?"
     m 1dsd "It's curious... sometimes what we keep silent weighs more than what we say."
@@ -2210,8 +2210,8 @@ init 5 python:
     ))
 
 label monika_ser_comprendido:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Have you ever felt that special relief of being understood without having to explain yourself, [mas_get_player_nickname()]?"
     m 1dsd "It's a feeling that's hard to describe... as if someone could see beyond your words, beyond your gestures, beyond your silences."
@@ -2245,8 +2245,8 @@ init 5 python:
     ))
 
 label monika_piensanenti:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Isn't it incredible, the peace that comes from knowing someone thinks of you, [mas_get_player_nickname()]?"
     m 1dsd "It's a gentle feeling... almost like a warm blanket on a cold day."
@@ -2281,8 +2281,8 @@ init 5 python:
     ))
 
 label monika_nostalgia_momentos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "It's curious how nostalgia works, isn't it, [mas_get_player_nickname()]?"
     m 1dsd "Sometimes we don't miss big events... but small moments that seemed insignificant at the time."
@@ -2310,8 +2310,8 @@ init 5 python:
     ))
 
 label monika_alguien_te_espera:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "There's something incredibly comforting about knowing someone is waiting for you, don't you think, [mas_get_player_nickname()]?"
     m 1dsd "Whether it's at the end of the day, after a trip, or simply when you return to a familiar place."
@@ -2342,8 +2342,8 @@ init 5 python:
     ))
 
 label monika_aceptacion_total:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "There's a very special calm that comes when someone accepts you as you are, don't you think, [mas_get_player_nickname()]?"
     m 1dsd "I don't mean a superficial acceptance, but the kind that lets you breathe without fear of being judged."
@@ -2370,8 +2370,8 @@ init 5 python:
     ))
 
 label monika_paz_vs_vacio:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Sometimes we confuse being at peace with feeling nothing, don't we, [mas_get_player_nickname()]?"
     m 1dsd "But they're very different things."
@@ -2401,8 +2401,8 @@ init 5 python:
     ))
 
 label monika_silencios_significativos:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "There are silences that make you uncomfortable... and silences that hold you, aren't there, [mas_get_player_nickname()]?"
     m 1dsd "It's curious how, with some people, there's no need to fill every second with words."
@@ -2431,8 +2431,8 @@ init 5 python:
     ))
 
 label monika_llorar_alivio:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Crying is such a human thing... and yet so many people see it as a weakness."
     m 1dsd "But there's a strange, almost liberating relief in crying when you can't take anymore."
@@ -2461,8 +2461,8 @@ init 5 python:
     ))
 
 label monika_pedir_ayuda:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Asking for help is one of the bravest things there is, don't you think, [mas_get_player_nickname()]?"
     m 1dsd "And yet... it's one of the hardest."
@@ -2493,8 +2493,8 @@ init 5 python:
     ))
 
 label monika_todo_es_temporal:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "It's curious how the idea that everything is temporary can be so terrifying... and so comforting at the same time."
     m 1dsd "The temporary reminds us that nothing lasts forever. Not pain, not sadness, not the hard moments."
@@ -2524,8 +2524,8 @@ init 5 python:
     ))
 
 label monika_miedo_cambiar:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Change can be very scary, can't it, [mas_get_player_nickname()]?"
     m 1dsd "Sometimes we feel like we're no longer who we used to be... but we also don't know who we're starting to become."
@@ -2555,8 +2555,8 @@ init 5 python:
     ))
 
 label monika_conexiones_inesperadas:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Some of life's most beautiful connections are the ones we never planned, don't you think, [mas_get_player_nickname()]?"
     m 1dsd "The ones that appear without warning, without intention, without a clear purpose."
@@ -2586,8 +2586,8 @@ init 5 python:
     ))
 
 label monika_no_fingir:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "There are few things as liberating as finding someone you don't have to pretend with, aren't there, [mas_get_player_nickname()]?"
     m 1dsd "Someone you don't need to perform for, impress, or hide your quirks from."
@@ -2613,8 +2613,8 @@ init 5 python:
     ))
 
 label monika_tiempo_cambia:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Time has a curious way of transforming what we feel, doesn't it, [mas_get_player_nickname()]?"
     m 1dsd "What once hurt, softens with the years. What once seemed eternal, fades."
@@ -2643,8 +2643,8 @@ init 5 python:
     ))
 
 label monika_carinio_acciones:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "They say words can lie... but actions can't, can they, [mas_get_player_nickname()]?"
     m 1dsd "There are people who don't know how to say 'I love you', but they show it in a thousand small ways."
@@ -2670,8 +2670,8 @@ init 5 python:
     ))
 
 label monika_evitar_dolor:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "It's curious how the mind can become an expert at dodging what hurts most, isn't it, [mas_get_player_nickname()]?"
     m 1dsd "Sometimes we fill ourselves with distractions, tasks, noise... just to avoid facing what wounds us."
@@ -2700,8 +2700,8 @@ init 5 python:
     ))
 
 label monika_amor_cambia:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Love has a curious way of changing us, doesn't it, [mas_get_player_nickname()]?"
     m 1dsd "Even when we try to resist it, even when we pretend it doesn't affect us... it ends up transforming us."
@@ -2730,8 +2730,8 @@ init 5 python:
     ))
 
 label monika_cansancio_emocional:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "Emotional exhaustion is one of the hardest kinds to recognize, isn't it, [mas_get_player_nickname()]?"
     m 1dsd "On the outside you can seem fine. You can smile, talk, function..."
@@ -2761,8 +2761,8 @@ init 5 python:
     ))
 
 label monika_buscar_senales:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "When we don't know what to decide, we tend to look for signs everywhere, don't we, [mas_get_player_nickname()]?"
     m 1dsd "We look at the sky, a random phrase, a song, a coincidence... anything that gives us a clue."
@@ -2792,8 +2792,8 @@ init 5 python:
     ))
 
 label monika_no_tener_respuestas:
-    if not mas_isAffectionate(higher=True):
-        return
+   
+
 
     m 1esd "We live with so much pressure to have answers for everything... that sometimes we forget something important, [mas_get_player_nickname()]."
     m 1dsd "You don't have to figure out your life today."
