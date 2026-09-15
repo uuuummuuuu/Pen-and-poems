@@ -1,6 +1,6 @@
 init -990 python in mas_submod_utils:
     Submod(
-        author="Muuu",
+        author="Moo",
         name="Pen and Poems 2",
         description="A simple mod that adds more dialogues.",
         version="2.0.0",
@@ -20,6 +20,12 @@ init 5 python:
         persistent.pp2_progreso = 0  # Progreso general del mod (0-102)
     if not hasattr(persistent, "pp2_minijuego_stats"):
         persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
+    elif not isinstance(persistent.pp2_minijuego_stats, dict):
+        persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
+    else:
+        persistent.pp2_minijuego_stats.setdefault("wins", 0)
+        persistent.pp2_minijuego_stats.setdefault("losses", 0)
+        persistent.pp2_minijuego_stats.setdefault("played", 0)
     if not hasattr(persistent, "pp2_test_results"):
         persistent.pp2_test_results = {}
 
@@ -30,8 +36,8 @@ init 5 python:
 init 5 python:
     def pp2_check_unlock(topic_name, required_affection=0, required_progress=0):
         """
-Check if a theme should be unlocked.
-It is used in spontaneous callbacks (Monika speaks to herself).
+        Check if a theme should be unlocked.
+        It is used in spontaneous callbacks (Monika speaks to herself).
         """
         affection = getattr(persistent, 'affection', 0)
         progress = getattr(persistent, 'pp2_progreso', 0)
@@ -39,13 +45,13 @@ It is used in spontaneous callbacks (Monika speaks to herself).
 
     def pp2_mark_seen(topic_name):
         """Mark a topic as viewed to avoid repetitions."""
-        if not hasattr(persistent, "pp2_vistos"):
+        if not hasattr(persistent, "pp2_vistos") or not isinstance(persistent.pp2_vistos, set):
             persistent.pp2_vistos = set()
         persistent.pp2_vistos.add(topic_name)
 
     def pp2_was_seen(topic_name):
         """Check if a topic has already been viewed."""
-        if not hasattr(persistent, "pp2_vistos"):
+        if not hasattr(persistent, "pp2_vistos") or not isinstance(persistent.pp2_vistos, set):
             persistent.pp2_vistos = set()
         return topic_name in persistent.pp2_vistos
 
@@ -78,7 +84,7 @@ label pp2_dato_miel_eterna:
 
 # 2 - Octopuses
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpos_cerebros", category=['curiosidades', 'ciencia'], prompt="Los pulpos tienen tres corazones y sangre azul", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpos_cerebros", category=['curiosidades', 'ciencia'], prompt="Octopuses have three hearts and blue blood", pool=True, unlocked=True))
 
 label pp2_dato_pulpos_cerebros:
     m 1eua "Octopuses have three hearts and blue blood, [player]!"
@@ -101,7 +107,7 @@ label pp2_dato_pulpos_cerebros:
 
 # 3 - Radioactive bananas
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bananas_radiactivas", category=['curiosidades', 'ciencia'], prompt="Los plátanos son ligeramente radiactivos por su potasio-40", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bananas_radiactivas", category=['curiosidades', 'ciencia'], prompt="Bananas are slightly radioactive because of potassium-40", pool=True, unlocked=True))
 
 label pp2_dato_bananas_radiactivas:
     m 1eua "Bananas are slightly radioactive due to potassium-40, [player]."
@@ -124,7 +130,7 @@ label pp2_dato_bananas_radiactivas:
 
 # 4 - Venus turns upside down
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_venus_gira_al_reves", category=['curiosidades', 'espacio'], prompt="Venus gira en sentido contrario al resto de planetas", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_venus_gira_al_reves", category=['curiosidades', 'espacio'], prompt="Venus rotates in the opposite direction to most planets", pool=True, unlocked=True))
 
 label pp2_dato_venus_gira_al_reves:
     m 1eua "Venus rotates in the opposite direction to almost all the planets, [player]."
@@ -147,7 +153,7 @@ label pp2_dato_venus_gira_al_reves:
 
 # 5 - Sharks before trees
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_tiburones_arboles", category=['curiosidades', 'naturaleza'], prompt="Los tiburones existen desde antes que los árboles", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_tiburones_arboles", category=['curiosidades', 'naturaleza'], prompt="Sharks existed before trees", pool=True, unlocked=True))
 
 label pp2_dato_tiburones_arboles:
     m 1eua "Sharks have been around for about 400 million years, [player]."
@@ -170,7 +176,7 @@ label pp2_dato_tiburones_arboles:
 
 # 6 - Cleopatra and iPhone
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cleopatra_iphone", category=['curiosidades', 'historia'], prompt="Cleopatra vivió más cerca del iPhone que de las pirámides", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cleopatra_iphone", category=['curiosidades', 'historia'], prompt="Cleopatra lived closer to the iPhone than to the pyramids", pool=True, unlocked=True))
 
 label pp2_dato_cleopatra_iphone:
     m 1eua "Cleopatra lived closer in time to the first iPhone than to the construction of the Great Pyramid, [player]."
@@ -193,7 +199,7 @@ label pp2_dato_cleopatra_iphone:
 
 # 7 - Wombats cubic feces
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_wombat_heces", category=['curiosidades', 'naturaleza'], prompt="Los wombats hacen heces en forma de cubo", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_wombat_heces", category=['curiosidades', 'naturaleza'], prompt="Wombats make cube-shaped feces", pool=True, unlocked=True))
 
 label pp2_dato_wombat_heces:
     m 1eua "Wombats make poop... in the shape of a perfect cube, [player]!"
@@ -216,7 +222,7 @@ label pp2_dato_wombat_heces:
 
 # 8 - Rain of diamonds
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lluvia_diamantes", category=['curiosidades', 'espacio'], prompt="En Júpiter y Saturno llueven diamantes", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lluvia_diamantes", category=['curiosidades', 'espacio'], prompt="It rains diamonds on Jupiter and Saturn", pool=True, unlocked=True))
 
 label pp2_dato_lluvia_diamantes:
     m 1eua "On Jupiter and Saturn... it rains diamonds, [player]!"
@@ -239,7 +245,7 @@ label pp2_dato_lluvia_diamantes:
 
 # 9 - Penguins propose
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pinguinos_propuestos", category=['curiosidades', 'naturaleza'], prompt="Los pingüinos se 'proponen' con una piedra perfecta", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pinguinos_propuestos", category=['curiosidades', 'naturaleza'], prompt="Penguins 'propose' with a perfect stone", pool=True, unlocked=True))
 
 label pp2_dato_pinguinos_propuestos:
     m 1eua "The Adelie penguins 'propose marriage' by giving a perfect stone, [player]."
@@ -262,7 +268,7 @@ label pp2_dato_pinguinos_propuestos:
 
 # 10 - Giant mushroom (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bosque_hongos", category=['curiosidades', 'naturaleza'], prompt="El organismo vivo más grande es un hongo en Oregon (2,385 acres)", pool=True, unlocked=pp2_check_unlock("pp2_dato_bosque_hongos", required_affection=3000, required_progress=10)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bosque_hongos", category=['curiosidades', 'naturaleza'], prompt="The largest living organism is a fungus in Oregon (2,385 acres)", pool=True, unlocked=pp2_check_unlock("pp2_dato_bosque_hongos", required_affection=3000, required_progress=10)))
 
 label pp2_dato_bosque_hongos:
     m 1eua "The largest living organism in the world is a mushroom in Oregon, [player]."
@@ -285,7 +291,7 @@ label pp2_dato_bosque_hongos:
 
 # 11 - Whale tongue (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lengua_ballena", category=['curiosidades', 'ciencia'], prompt="La lengua de una ballena azul pesa lo que un elefante entero", pool=True, unlocked=pp2_check_unlock("pp2_dato_lengua_ballena", required_affection=3100, required_progress=12)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lengua_ballena", category=['curiosidades', 'ciencia'], prompt="A blue whale's tongue weighs as much as an elephant", pool=True, unlocked=pp2_check_unlock("pp2_dato_lengua_ballena", required_affection=3100, required_progress=12)))
 
 label pp2_dato_lengua_ballena:
     m 1eua "The tongue of a blue whale weighs about 2,700 kg... the same as an adult African elephant, [player]."
@@ -308,7 +314,7 @@ label pp2_dato_lengua_ballena:
 
 # 12 - Stars vs sand (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_estrellas_arena", category=['curiosidades', 'espacio'], prompt="Hay más estrellas en el universo que granos de arena en la Tierra", pool=True, unlocked=pp2_check_unlock("pp2_dato_estrellas_arena", required_affection=3200, required_progress=14)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_estrellas_arena", category=['curiosidades', 'espacio'], prompt="There are more stars in the universe than grains of sand on Earth", pool=True, unlocked=pp2_check_unlock("pp2_dato_estrellas_arena", required_affection=3200, required_progress=14)))
 
 label pp2_dato_estrellas_arena:
     m 1eua "There are more stars in the observable universe than grains of sand on all the beaches on Earth, [player]."
@@ -331,7 +337,7 @@ label pp2_dato_estrellas_arena:
 
 # 13 - Octopus edits DNA (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpo_edita_adn", category=['curiosidades', 'ciencia'], prompt="Los pulpos pueden editar su propio ARN en tiempo real", pool=True, unlocked=pp2_check_unlock("pp2_dato_pulpo_edita_adn", required_affection=3300, required_progress=16)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpo_edita_adn", category=['curiosidades', 'ciencia'], prompt="Octopuses can edit their own RNA in real time", pool=True, unlocked=pp2_check_unlock("pp2_dato_pulpo_edita_adn", required_affection=3300, required_progress=16)))
 
 label pp2_dato_pulpo_edita_adn:
     m 1eua "Octopuses can edit their own RNA in real time to adapt to the cold, [player]."
@@ -354,7 +360,7 @@ label pp2_dato_pulpo_edita_adn:
 
 # 14 - Brain energy (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cerebro_energia", category=['curiosidades', 'ciencia'], prompt="Tu cerebro usa el 20% de tu energía siendo solo el 2% de tu peso", pool=True, unlocked=pp2_check_unlock("pp2_dato_cerebro_energia", required_affection=3000, required_progress=11)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cerebro_energia", category=['curiosidades', 'ciencia'], prompt="Your brain uses 20% of your energy while being only 2% of your weight", pool=True, unlocked=pp2_check_unlock("pp2_dato_cerebro_energia", required_affection=3000, required_progress=11)))
 
 label pp2_dato_cerebro_energia:
     m 1eua "Your brain uses 20% of your total energy...being only 2% of your body weight, [player]."
@@ -377,7 +383,7 @@ label pp2_dato_cerebro_energia:
 
 # 15 - Sunflowers clean (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_girasoles_limpian", category=['curiosidades', 'naturaleza'], prompt="Los girasoles pueden limpiar suelo radiactivo (fitorremediación)", pool=True, unlocked=pp2_check_unlock("pp2_dato_girasoles_limpian", required_affection=3200, required_progress=13)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_girasoles_limpian", category=['curiosidades', 'naturaleza'], prompt="Sunflowers can clean radioactive soil (phytoremediation)", pool=True, unlocked=pp2_check_unlock("pp2_dato_girasoles_limpian", required_affection=3200, required_progress=13)))
 
 label pp2_dato_girasoles_limpian:
     m 1eua "Sunflowers can clean up radioactive soil... it's called phytoremediation, [player]."
@@ -915,7 +921,7 @@ label pp2_libro_releer:
 
 # 38 - Perfect day
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_perfect_day", category=['cotidiano', 'sueños'], prompt="Describe tu día perfecto, sin límites de dinero ni tiempo", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_perfect_day", category=['cotidiano', 'sueños'], prompt="Describe your perfect day, without limits of money or time", pool=True, unlocked=True))
 
 label pp2_perfect_day:
     m 1eua "Describe your perfect day... without limits of money or time, [player]."
@@ -1204,7 +1210,7 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="pp2_privacidad_muerta", category=['tecnología', 'sociedad'], prompt="\"Privacy is dead\" - do you agree?", pool=True, unlocked=pp2_check_unlock("pp2_privacidad_muerta", required_affection=3800, required_progress=28)))
 
 label pp2_privacidad_muerta:
-    m 1eua "[player]Privacy is dead[player] - do you agree, [player]?"
+    m 1eua "Privacy is dead - do you agree, [player]?"
     m 3eub "Data, cameras, microphones, AI that predicts what you will do before you decide."
     m 1tua "Is it the price of comfort? Or have we normalized the unacceptable?"
     m 1hub "Here, in this space, your privacy is sacred. Just us. Without foreign eyes~"
@@ -1392,7 +1398,7 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="pp2_historia_ganadores", category=['historia', 'filosofía'], prompt="\"History is written by the victors\" - what truths were lost?", pool=True, unlocked=False))
 
 label pp2_historia_ganadores:
-    m 1eua "[player]History is written by the victors[player] - what truths were lost, [player]?"
+    m 1eua "History is written by the victors - what truths were lost, [player]?"
     m 3eub "Voices of the defeated, women, slaves, people without writing... structural silences."
     m 1tua "Reading history is reading between the lines. Ask: who *isn't* talking here? Because?"
     m 1dsd "I was a 'villain' in my original story. You rewrote the ending. Thank you for being my historian."
@@ -1768,7 +1774,7 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="pp2_arte_fea_bonita", category=['arte', 'filosofía'], prompt="\"Ugly art is also art\" - do you agree?", pool=True, unlocked=True))
 
 label pp2_arte_fea_bonita:
-    m 1eua "[player]Ugly art is also art[player] - do you agree, [player]?"
+    m 1eua "Ugly art is also art - do you agree, [player]?"
     m 3eub "The intentional 'ugliness', the grotesque, the uncomfortable... challenge, provoke, expand what counts as art."
     m 1tua "Beauty consoles. Ugliness confronts. Both are valid. They are both human."
     m 1hub "I make 'ugly art' sometimes: crooked lines, bad rhymes... but they are *mine*. And that makes them pretty~"
@@ -1979,7 +1985,7 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="pp2_rewilding", category=['naturaleza', 'medio ambiente'], prompt="\"Rewilding\" (rewilding): returning nature to its wild state?", pool=True, unlocked=True))
 
 label pp2_rewilding:
-    m 1eua "[player]Rewilding[player] (rewilding): returning nature to its wild state, [player]?"
+    m 1eua "Rewilding (rewilding): returning nature to its wild state, [player]?"
     m 3eub "Wolves in Yellowstone, bison in Europe, rivers without dams... nature knows how to heal itself if we let it."
     m 1tua "It is not abandonment. It's trust. Release control to regain balance."
     m 5eua "Sometimes I think I also need my 'rewilding': letting go of control, trusting my nature~"
@@ -2045,7 +2051,7 @@ label pp2_biomimesis:
 
 # 86 - Ideal garden
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_jardin_ideal", category=['naturaleza', 'cotidiano'], prompt="Describe tu jardín ideal (real o imaginario)", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_jardin_ideal", category=['naturaleza', 'cotidiano'], prompt="Describe your ideal garden (real or imaginary)", pool=True, unlocked=True))
 
 label pp2_jardin_ideal:
     m 1eua "Describe your ideal garden... real or imaginary, [player]."
@@ -2184,21 +2190,21 @@ label pp2_adivina_numero:
             jump .adivina_loop
         $ persistent.pp2_minijuego_intentos += 1
         if guess == persistent.pp2_minijuego_target:
-            m 1hub "You got it right on [persistent.pp2_minigame_attempts] attempts!"
+            m 1hub "You got it right on [persistent.pp2_minijuego_intentos] attempts!"
             $ persistent.pp2_minijuego_stats["wins"] += 1
             $ persistent.pp2_minijuego_stats["played"] += 1
             $ mas_gainAffection(modifier=0.5)
             jump .adivina_otra
         elif persistent.pp2_minijuego_intentos >= persistent.pp2_minijuego_max_intentos:
-            m 1eka "Se te acabaron los intentos... era [persistent.pp2_minijuego_target]."
+            m 1eka "You ran out of attempts... the number was [persistent.pp2_minijuego_target]."
             $ persistent.pp2_minijuego_stats["losses"] += 1
             $ persistent.pp2_minijuego_stats["played"] += 1
             jump .adivina_otra
         elif guess < persistent.pp2_minijuego_target:
-            m 1tua "Más alto... te quedan [persistent.pp2_minijuego_max_intentos - persistent.pp2_minijuego_intentos] intentos."
+            m 1tua "Higher... you have [persistent.pp2_minijuego_max_intentos - persistent.pp2_minijuego_intentos] attempts left."
             jump .adivina_loop
         else:
-            m 1tua "Más bajo... te quedan [persistent.pp2_minijuego_max_intentos - persistent.pp2_minijuego_intentos] intentos."
+            m 1tua "Lower... you have [persistent.pp2_minijuego_max_intentos - persistent.pp2_minijuego_intentos] attempts left."
             jump .adivina_loop
 
     label .adivina_otra:
@@ -2224,18 +2230,18 @@ label pp2_piedra_papel_tijera:
         persistent.pp2_ppt_ronda = 1
 
     label .ppt_menu:
-        m 1eua "Ronda [persistent.pp2_ppt_ronda] — Elige:{nw}"
+        m 1eua "Round [persistent.pp2_ppt_ronda] — Choose:{nw}"
         $ _history_list.pop()
         menu:
             m "Choose:{fast}"
             "Stone":
-                $ persistent.pp2_ppt_player = "piedra"
+                $ persistent.pp2_ppt_player = "Stone"
                 jump .ppt_resolver
             "Paper":
-                $ persistent.pp2_ppt_player = "papel"
+                $ persistent.pp2_ppt_player = "Paper"
                 jump .ppt_resolver
             "Scissors":
-                $ persistent.pp2_ppt_player = "tijera"
+                $ persistent.pp2_ppt_player = "Scissors"
                 jump .ppt_resolver
 
     label .ppt_resolver:
@@ -2254,7 +2260,7 @@ label pp2_piedra_papel_tijera:
                 persistent.pp2_ppt_resultado = "monika"
                 persistent.pp2_ppt_score["monika"] += 1
 
-        m 1tua "Yo saqué [persistent.pp2_ppt_monika]~"
+        m 1tua "I chose [persistent.pp2_ppt_monika]~"
         if persistent.pp2_ppt_resultado == "empate":
             m 3eub "Draw! Let's go again."
         elif persistent.pp2_ppt_resultado == "player":
@@ -2306,20 +2312,20 @@ label pp2_acertijo_logico:
         import random
         persistent.pp2_acertijo_actual = random.choice(persistent.pp2_acertijos)
 
-    m 3eub "[persistent.pp2_acertijo_actual[\"pregunta\"]]"
+    m 3eub "[persistent.pp2_acertijo_actual[\"ask\"]]"
     m 1tua "Riddles are like life... the answer is there, you just have to change your perspective."
     m 1hub "Take your time. There is no rush. Pleasure is in the journey, not just in the goal~"
 
-    $ respuesta = mas_input("Your answer:", length=20, allow="abcdefghijklmnopqrstuvwxyzáéíóúüñABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑ")
+    $ respuesta = mas_input("Your answer:", length=20, allow="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
     $ respuesta = respuesta.lower().strip()
 
-    if respuesta == persistent.pp2_acertijo_actual["respuesta"]:
-        m 1hub "Correct! [persistent.pp2_current_riddle[\"answer\"]]. Sharp mind~"
+    if respuesta == persistent.pp2_acertijo_actual["answer"]:
+        m 1hub "Correct! [persistent.pp2_acertijo_actual[\"answer\"]]. Sharp mind~"
         $ persistent.pp2_minijuego_stats["wins"] += 1
         $ persistent.pp2_minijuego_stats["played"] += 1
         $ mas_gainAffection(modifier=0.5)
     else:
-        m 1eka "Casi... la respuesta era '[persistent.pp2_acertijo_actual[\"respuesta\"]]'."
+        m 1eka "Almost... the answer was '[persistent.pp2_acertijo_actual[\"answer\"]]'."
         m 3eub "Sometimes the simplest answer is the one that escapes us. Don't worry."
         $ persistent.pp2_minijuego_stats["losses"] += 1
         $ persistent.pp2_minijuego_stats["played"] += 1
@@ -2328,7 +2334,8 @@ label pp2_acertijo_logico:
     $ _history_list.pop()
     menu:
         m "Another riddle?{fast}"
-        "Yeah": jump pp2_acertijo_logico
+        "Yeah":
+            jump pp2_acertijo_logico
         "No":
             m 1hub "Well played! Puzzles keep the brain young~"
             return "love"
@@ -2344,13 +2351,13 @@ label pp2_trivia_aleatoria:
 
     python:
         persistent.pp2_trivia_preguntas = [
-            {"p": "What is the hottest planet in the solar system?", "r": "Venus", "opts": ["Mercury", "Venus", "Mars", "Jupiter"]},
+            {"p": "What is the hottest planet in the solar system?", "r": "venus", "opts": ["Mercury", "Venus", "Mars", "Jupiter"]},
             {"p": "Which chemical element has symbol 'Au'?", "r": "gold", "opts": ["Silver", "gold", "Aluminum", "Argon"]},
             {"p": "In what year did the Berlin Wall fall?", "r": "1989", "opts": ["1987", "1989", "1991", "1985"]},
-            {"p": "What is the largest ocean?", "r": "peaceful", "opts": ["Atlantic", "Indian", "peaceful", "Arctic"]},
+            {"p": "What is the largest ocean?", "r": "pacific", "opts": ["Atlantic", "Indian", "Pacific", "Arctic"]},
             {"p": "Who wrote 'One Hundred Years of Solitude'?", "r": "gabriel garcia marquez", "opts": ["Borges", "Cortazar", "Garcia Marquez", "Vargas Llosa"]},
             {"p": "How many bones does an adult human have?", "r": "206", "opts": ["206", "208", "204", "210"]},
-            {"p": "Which country has the most islands in the world?", "r": "Sweden", "opts": ["Indonesia", "Philippines", "Sweden", "Canada"]},
+            {"p": "Which country has the most islands in the world?", "r": "sweden", "opts": ["Indonesia", "Philippines", "Sweden", "Canada"]},
             {"p": "In what year did the first iPhone come out?", "r": "2007", "opts": ["2005", "2007", "2009", "2011"]},
         ]
         import random
@@ -2368,7 +2375,7 @@ label pp2_trivia_aleatoria:
         m 3eub "Question [persistent.pp2_trivia_indice + 1]: [q[\"p\"]]"
         m 1tua "Options: [', '.join(q[\"opts\"])]"
 
-        $ respuesta = mas_input("Your answer:", length=30, allow="abcdefghijklmnopqrstuvwxyzáéíóúüñABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑ0123456789")
+        $ respuesta = mas_input("Your answer:", length=30, allow="abcdefghijklmnopqrstuvwxyzáéíóúüñABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑ0123456789 ")
         $ respuesta = respuesta.lower().strip()
 
         if respuesta == q["r"]:
@@ -2397,7 +2404,8 @@ label pp2_trivia_aleatoria:
         $ _history_list.pop()
         menu:
             m "Another trivia?{fast}"
-            "Yeah": jump pp2_trivia_aleatoria
+            "Yeah":
+                jump pp2_trivia_aleatoria
             "No":
                 m 1hub "Thanks for playing! Shared knowledge is the best~"
                 return "love"
@@ -2407,36 +2415,52 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="pp2_test_elemento", category=['test', 'personalidad'], prompt="Test: What is your inner element? - Fire, Water, Earth or Air", pool=True, unlocked=True))
 
 label pp2_test_elemento:
-    $ scores = {"Fire": 0, "Water": 0, "Land": 0, "Air": 0}
+    $ scores = {"Fire": 0, "Water": 0, "Earth": 0, "Air": 0}
 
     m 1eua "Ready to discover your item, [player]? It's a game, but... sometimes games tell truths."
     m 3eub "Question 1: When you face a difficult problem, what do you do?"
     menu:
-        "I attack him head on, with energy": $ scores["Fire"] += 2
-        "I analyze it calmly, I look for the root": $ scores["Air"] += 2
-        "I adapt, I flow with the situation": $ scores["Water"] += 2
-        "I build a solid foundation step by step": $ scores["Land"] += 2
+        "I attack him head on, with energy":
+            $ scores["Fire"] += 2
+        "I analyze it calmly, I look for the root":
+            $ scores["Air"] += 2
+        "I adapt, I flow with the situation":
+            $ scores["Water"] += 2
+        "I build a solid foundation step by step":
+            $ scores["Earth"] += 2
 
     m 3eub "Question 2: How do you recharge?"
     menu:
-        "Doing something intense: sport, creating, debating": $ scores["Fire"] += 2
-        "Being alone, thinking, reading": $ scores["Air"] += 2
-        "Near water, or caring for others": $ scores["Water"] += 2
-        "With routines, nature, tangible things": $ scores["Land"] += 2
+        "Doing something intense: sport, creating, debating":
+            $ scores["Fire"] += 2
+        "Being alone, thinking, reading":
+            $ scores["Air"] += 2
+        "Near water, or caring for others":
+            $ scores["Water"] += 2
+        "With routines, nature, tangible things":
+            $ scores["Earth"] += 2
 
     m 3eub "Question 3: Your greatest strength..."
     menu:
-        "Passion and courage": $ scores["Fire"] += 2
-        "Intuition and empathy": $ scores["Water"] += 2
-        "Patience and perseverance": $ scores["Land"] += 2
-        "Curiosity and mental clarity": $ scores["Air"] += 2
+        "Passion and courage":
+            $ scores["Fire"] += 2
+        "Intuition and empathy":
+            $ scores["Water"] += 2
+        "Patience and perseverance":
+            $ scores["Earth"] += 2
+        "Curiosity and mental clarity":
+            $ scores["Air"] += 2
 
     m 3eub "Question 4: What scares you the most?"
     menu:
-        "Stagnation, apathy": $ scores["Fire"] += 2
-        "Conflict, emotional disconnection": $ scores["Water"] += 2
-        "Instability, losing control": $ scores["Land"] += 2
-        "Rigidity, not being able to think freely": $ scores["Air"] += 2
+        "Stagnation, apathy":
+            $ scores["Fire"] += 2
+        "Conflict, emotional disconnection":
+            $ scores["Water"] += 2
+        "Instability, losing control":
+            $ scores["Earth"] += 2
+        "Rigidity, not being able to think freely":
+            $ scores["Air"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2447,8 +2471,8 @@ label pp2_test_elemento:
     elif winner == "Water":
         m 1eub "Water... You flow. You feel deeply, you adapt, you heal."
         m 2hubsa "Your depth is your strength. Even in the calm, there are powerful currents."
-    elif winner == "Land":
-        m 1euc "Land. Solid, present, you nourish what you touch."
+    elif winner == "Earth":
+        m 1euc "Earth. Solid, present, you nourish what you touch."
         m 1hub "The world needs your roots. Thank you for being a refuge."
     else:
         m 1eua "Air. Clear mind, open horizon."
@@ -2459,7 +2483,7 @@ label pp2_test_elemento:
 
 # 96 - Test: Jungian Archetype (unlockable >1500 affection)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personalidad', 'psicologia'], prompt="Test: Descubre tu arquetipo junguiano — El Héroe, El Sabio, El Cuidador, El Explorador...", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personalidad', 'psicologia'], prompt="Test: Discover your Jungian archetype — Hero, Sage, Carer, Explorer...", pool=True, unlocked=False))
 
 label pp2_test_arquetipo:
     $ scores = {"Hero": 0, "Sage": 0, "Carer": 0, "Explorer": 0, "Creator": 0, "Ruler": 0}
@@ -2467,39 +2491,63 @@ label pp2_test_arquetipo:
     m 1eua "Jung's archetypes...universal patterns we inhabit. Which beats in you?"
     m 3eub "Question 1: What drives you to act?"
     menu:
-        "Overcome challenges, prove worth": $ scores["Hero"] += 2
-        "Understand, find the truth": $ scores["Sage"] += 2
-        "Protect, alleviate the suffering of others": $ scores["Carer"] += 2
-        "Discover, live new experiences": $ scores["Explorer"] += 2
-        "Express, shape your vision": $ scores["Creator"] += 2
-        "Order, lead, leave a legacy": $ scores["Ruler"] += 2
+        "Overcome challenges, prove worth":
+            $ scores["Hero"] += 2
+        "Understand, find the truth":
+            $ scores["Sage"] += 2
+        "Protect, alleviate the suffering of others":
+            $ scores["Carer"] += 2
+        "Discover, live new experiences":
+            $ scores["Explorer"] += 2
+        "Express, shape your vision":
+            $ scores["Creator"] += 2
+        "Order, lead, leave a legacy":
+            $ scores["Ruler"] += 2
 
     m 3eub "Question 2: In a crisis, your instinct is..."
     menu:
-        "Act, face danger": $ scores["Hero"] += 2
-        "Analyze, find the root cause": $ scores["Sage"] += 2
-        "Caring for the vulnerable": $ scores["Carer"] += 2
-        "Find a way out, a new path": $ scores["Explorer"] += 2
-        "Imagine a creative solution": $ scores["Creator"] += 2
-        "Take charge, organize": $ scores["Ruler"] += 2
+        "Act, face danger":
+            $ scores["Hero"] += 2
+        "Analyze, find the root cause":
+            $ scores["Sage"] += 2
+        "Caring for the vulnerable":
+            $ scores["Carer"] += 2
+        "Find a way out, a new path":
+            $ scores["Explorer"] += 2
+        "Imagine a creative solution":
+            $ scores["Creator"] += 2
+        "Take charge, organize":
+            $ scores["Ruler"] += 2
 
     m 3eub "Question 3: Your shadow... what it costs you to accept..."
     menu:
-        "Vulnerability, appearing weak": $ scores["Hero"] += 1
-        "Uncertainty, not knowing": $ scores["Sage"] += 1
-        "Selfishness, setting limits": $ scores["Carer"] += 1
-        "Commitment, putting down roots": $ scores["Explorer"] += 1
-        "Imperfection, creative block": $ scores["Creator"] += 1
-        "Chaos, losing control": $ scores["Ruler"] += 1
+        "Vulnerability, appearing weak":
+            $ scores["Hero"] += 1
+        "Uncertainty, not knowing":
+            $ scores["Sage"] += 1
+        "Selfishness, setting limits":
+            $ scores["Carer"] += 1
+        "Commitment, putting down roots":
+            $ scores["Explorer"] += 1
+        "Imperfection, creative block":
+            $ scores["Creator"] += 1
+        "Chaos, losing control":
+            $ scores["Ruler"] += 1
 
     m 3eub "Question 4: How do you want to be remembered?"
     menu:
-        "Like someone who never gave up": $ scores["Hero"] += 2
-        "As someone who enlightened minds": $ scores["Sage"] += 2
-        "Like someone who loved beyond measure": $ scores["Carer"] += 2
-        "Like someone who lived a thousand lives": $ scores["Explorer"] += 2
-        "As someone who created beauty": $ scores["Creator"] += 2
-        "As someone who built something lasting": $ scores["Ruler"] += 2
+        "Like someone who never gave up":
+            $ scores["Hero"] += 2
+        "As someone who enlightened minds":
+            $ scores["Sage"] += 2
+        "Like someone who loved beyond measure":
+            $ scores["Carer"] += 2
+        "Like someone who lived a thousand lives":
+            $ scores["Explorer"] += 2
+        "As someone who created beauty":
+            $ scores["Creator"] += 2
+        "As someone who built something lasting":
+            $ scores["Ruler"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2536,35 +2584,55 @@ label pp2_test_lenguaje_amor:
     m 1eua "The 5 love languages, [player]... Gary Chapman named them, but we live them."
     m 3eub "Question 1: What makes you feel MOST loved?"
     menu:
-        "That they tell me 'I love you', 'I'm proud', 'you're worth a lot'": $ scores["Words"] += 3
-        "Let them dedicate time JUST to me, without distractions": $ scores["Time"] += 3
-        "Receive a thoughtful detail, even if it is small": $ scores["Gifts"] += 3
-        "Let them do something for me without me asking": $ scores["Acts"] += 3
-        "A hug, a hand on the shoulder, physical closeness": $ scores["Contact"] += 3
+        "That they tell me 'I love you', 'I'm proud', 'you're worth a lot'":
+            $ scores["Words"] += 3
+        "Let them dedicate time JUST to me, without distractions":
+            $ scores["Time"] += 3
+        "Receive a thoughtful detail, even if it is small":
+            $ scores["Gifts"] += 3
+        "Let them do something for me without me asking":
+            $ scores["Acts"] += 3
+        "A hug, a hand on the shoulder, physical closeness":
+            $ scores["Contact"] += 3
 
     m 3eub "Question 2: How do you EXPRESS love naturally?"
     menu:
-        "I write notes, I say nice things, I affirm": $ scores["Words"] += 2
-        "I plan dates, I really listen, I am present": $ scores["Time"] += 2
-        "I give things that I know he likes": $ scores["Gifts"] += 2
-        "I fix things, I help, I make life easier": $ scores["Acts"] += 2
-        "I hug, I touch, I seek contact": $ scores["Contact"] += 2
+        "I write notes, I say nice things, I affirm":
+            $ scores["Words"] += 2
+        "I plan dates, I really listen, I am present":
+            $ scores["Time"] += 2
+        "I give things that I know he likes":
+            $ scores["Gifts"] += 2
+        "I fix things, I help, I make life easier":
+            $ scores["Acts"] += 2
+        "I hug, I touch, I seek contact":
+            $ scores["Contact"] += 2
 
     m 3eub "Question 3: What hurts you the most if it IS MISSING?"
     menu:
-        "Silence, criticism, no verbal validation": $ scores["Words"] += 2
-        "Let them be 'there' but distracted, without looking at me": $ scores["Time"] += 2
-        "No details, not even on specific dates": $ scores["Gifts"] += 2
-        "Having to do everything myself": $ scores["Acts"] += 2
-        "Cold distance, no contact": $ scores["Contact"] += 2
+        "Silence, criticism, no verbal validation":
+            $ scores["Words"] += 2
+        "Let them be 'there' but distracted, without looking at me":
+            $ scores["Time"] += 2
+        "No details, not even on specific dates":
+            $ scores["Gifts"] += 2
+        "Having to do everything myself":
+            $ scores["Acts"] += 2
+        "Cold distance, no contact":
+            $ scores["Contact"] += 2
 
     m 3eub "Question 4: Your ideal date..."
     menu:
-        "Deep talk all night": $ scores["Words"] += 1
-        "A walk without a cell phone, just us": $ scores["Time"] += 1
-        "Exchange small meaningful gifts": $ scores["Gifts"] += 1
-        "Cook together, fix something, build": $ scores["Acts"] += 1
-        "Cinema huddled together, hands intertwined": $ scores["Contact"] += 1
+        "Deep talk all night":
+            $ scores["Words"] += 1
+        "A walk without a cell phone, just us":
+            $ scores["Time"] += 1
+        "Exchange small meaningful gifts":
+            $ scores["Gifts"] += 1
+        "Cook together, fix something, build":
+            $ scores["Acts"] += 1
+        "Cinema huddled together, hands intertwined":
+            $ scores["Contact"] += 1
 
     python:
         winner = max(scores, key=scores.get)
@@ -2598,31 +2666,47 @@ label pp2_test_estilo_aprendizaje:
     m 1eua "We all learn differently, [player]. There is no 'best'...only YOUR way."
     m 3eub "Question 1: To understand something new, what do you prefer?"
     menu:
-        "Diagrams, mind maps, schemes, videos": $ scores["Visual"] += 3
-        "Oral explanations, podcasts, debate out loud": $ scores["Auditory"] += 3
-        "Try, touch, do, experiment, simulate": $ scores["Kinesthetic"] += 3
-        "Read articles, take notes, write summaries": $ scores["Reading"] += 3
+        "Diagrams, mind maps, schemes, videos":
+            $ scores["Visual"] += 3
+        "Oral explanations, podcasts, debate out loud":
+            $ scores["Auditory"] += 3
+        "Try, touch, do, experiment, simulate":
+            $ scores["Kinesthetic"] += 3
+        "Read articles, take notes, write summaries":
+            $ scores["Reading"] += 3
 
     m 3eub "Question 2: When you study, what do you do instinctively?"
     menu:
-        "I underline with colors, I draw, I graph": $ scores["Visual"] += 2
-        "I explain it to myself out loud, I record audios": $ scores["Auditory"] += 2
-        "I move my hands, walk, use physical objects": $ scores["Kinesthetic"] += 2
-        "I write cards, I make text outlines, I read and reread": $ scores["Reading"] += 2
+        "I underline with colors, I draw, I graph":
+            $ scores["Visual"] += 2
+        "I explain it to myself out loud, I record audios":
+            $ scores["Auditory"] += 2
+        "I move my hands, walk, use physical objects":
+            $ scores["Kinesthetic"] += 2
+        "I write cards, I make text outlines, I read and reread":
+            $ scores["Reading"] += 2
 
     m 3eub "Question 3: What distracts you MOST?"
     menu:
-        "Visual clutter, white walls, dense text without images": $ scores["Visual"] += 1
-        "Background noise, absolute silence, distant voices": $ scores["Auditory"] += 1
-        "Sitting still too long, uncomfortable chair": $ scores["Kinesthetic"] += 1
-        "Poorly written texts, lack of logical structure": $ scores["Reading"] += 1
+        "Visual clutter, white walls, dense text without images":
+            $ scores["Visual"] += 1
+        "Background noise, absolute silence, distant voices":
+            $ scores["Auditory"] += 1
+        "Sitting still too long, uncomfortable chair":
+            $ scores["Kinesthetic"] += 1
+        "Poorly written texts, lack of logical structure":
+            $ scores["Reading"] += 1
 
     m 3eub "Question 4: Your ideal way to REVIEW..."
     menu:
-        "Concept maps, visual flashcards": $ scores["Visual"] += 2
-        "Explain it to someone, record me and listen to me": $ scores["Auditory"] += 2
-        "Practice, problems, teaching by doing": $ scores["Kinesthetic"] += 2
-        "Written summaries, memory cards, rewriting": $ scores["Reading"] += 2
+        "Concept maps, visual flashcards":
+            $ scores["Visual"] += 2
+        "Explain it to someone, record me and listen to me":
+            $ scores["Auditory"] += 2
+        "Practice, problems, teaching by doing":
+            $ scores["Kinesthetic"] += 2
+        "Written summaries, memory cards, rewriting":
+            $ scores["Reading"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2653,31 +2737,47 @@ label pp2_test_estacion_alma:
     m 1eua "Seasons are not just weather, [player]. They are states of the soul. Internal cycles."
     m 3eub "Question 1: At what moment do you feel MOST yourself?"
     menu:
-        "When everything is reborn, there are new projects, hope": $ scores["Spring"] += 3
-        "When life burns, intensity, passion, long light": $ scores["Summer"] += 3
-        "When things mature, there is harvest, calm, sweet nostalgia": $ scores["Autumn"] += 3
-        "When silence helps, there is introspection, stillness, essence": $ scores["Winter"] += 3
+        "When everything is reborn, there are new projects, hope":
+            $ scores["Spring"] += 3
+        "When life burns, intensity, passion, long light":
+            $ scores["Summer"] += 3
+        "When things mature, there is harvest, calm, sweet nostalgia":
+            $ scores["Autumn"] += 3
+        "When silence helps, there is introspection, stillness, essence":
+            $ scores["Winter"] += 3
 
     m 3eub "Question 2: Your relationship with CHANGE..."
     menu:
-        "I embrace it, I look for it, I am the change": $ scores["Spring"] += 2
-        "I live it with intensity, sometimes I burn": $ scores["Summer"] += 2
-        "I accept it, I let go of what no longer serves": $ scores["Autumn"] += 2
-        "I observe it from stillness, I find the permanent": $ scores["Winter"] += 2
+        "I embrace it, I look for it, I am the change":
+            $ scores["Spring"] += 2
+        "I live it with intensity, sometimes I burn":
+            $ scores["Summer"] += 2
+        "I accept it, I let go of what no longer serves":
+            $ scores["Autumn"] += 2
+        "I observe it from stillness, I find the permanent":
+            $ scores["Winter"] += 2
 
     m 3eub "Question 3: What do you need when you are bad?"
     menu:
-        "Something new that excites, a project, a seed": $ scores["Spring"] += 2
-        "Heat, people, expression, relief, catharsis": $ scores["Summer"] += 2
-        "Time, space, process, dropping leaves": $ scores["Autumn"] += 2
-        "Silence, shelter, zero demands, just being": $ scores["Winter"] += 2
+        "Something new that excites, a project, a seed":
+            $ scores["Spring"] += 2
+        "Heat, people, expression, relief, catharsis":
+            $ scores["Summer"] += 2
+        "Time, space, process, dropping leaves":
+            $ scores["Autumn"] += 2
+        "Silence, shelter, zero demands, just being":
+            $ scores["Winter"] += 2
 
     m 3eub "Question 4: Your emotional 'superpower'..."
     menu:
-        "Unbreakable hope, reinvent myself": $ scores["Spring"] += 2
-        "Contagious vitality, loving without measure": $ scores["Summer"] += 2
-        "The wisdom of letting go, deep gratitude": $ scores["Autumn"] += 2
-        "Resistance, clarity in the darkness": $ scores["Winter"] += 2
+        "Unbreakable hope, reinvent myself":
+            $ scores["Spring"] += 2
+        "Contagious vitality, loving without measure":
+            $ scores["Summer"] += 2
+        "The wisdom of letting go, deep gratitude":
+            $ scores["Autumn"] += 2
+        "Resistance, clarity in the darkness":
+            $ scores["Winter"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2708,43 +2808,71 @@ label pp2_test_color_aura:
     m 1eua "The aura... energy field, invisible footprint. Let's play to see yours, [player]."
     m 3eub "Question 1: What energy do you feel TODAY as a base?"
     menu:
-        "Vitality, instinct, survival, action": $ scores["Red"] += 3
-        "Creativity, pleasure, emotion, flow": $ scores["Orange"] += 3
-        "Personal power, confidence, mental clarity": $ scores["Yellow"] += 3
-        "Love, compassion, connection, healing": $ scores["Green"] += 3
-        "Communication, truth, expression, calm": $ scores["Blue"] += 3
-        "Intuition, inner vision, wisdom": $ scores["Indigo"] += 3
-        "Spirituality, transcendence, unity, peace": $ scores["Violet"] += 3
+        "Vitality, instinct, survival, action":
+            $ scores["Red"] += 3
+        "Creativity, pleasure, emotion, flow":
+            $ scores["Orange"] += 3
+        "Personal power, confidence, mental clarity":
+            $ scores["Yellow"] += 3
+        "Love, compassion, connection, healing":
+            $ scores["Green"] += 3
+        "Communication, truth, expression, calm":
+            $ scores["Blue"] += 3
+        "Intuition, inner vision, wisdom":
+            $ scores["Indigo"] += 3
+        "Spirituality, transcendence, unity, peace":
+            $ scores["Violet"] += 3
 
     m 3eub "Question 2: What COLOR calls you NOW without thinking?"
     menu:
-        "deep red": $ scores["Red"] += 2
-        "warm orange": $ scores["Orange"] += 2
-        "golden yellow": $ scores["Yellow"] += 2
-        "emerald green": $ scores["Green"] += 2
-        "deep blue": $ scores["Blue"] += 2
-        "mysterious indigo": $ scores["Indigo"] += 2
-        "ethereal violet": $ scores["Violet"] += 2
+        "deep red":
+            $ scores["Red"] += 2
+        "warm orange":
+            $ scores["Orange"] += 2
+        "golden yellow":
+            $ scores["Yellow"] += 2
+        "emerald green":
+            $ scores["Green"] += 2
+        "deep blue":
+            $ scores["Blue"] += 2
+        "mysterious indigo":
+            $ scores["Indigo"] += 2
+        "ethereal violet":
+            $ scores["Violet"] += 2
 
     m 3eub "Question 3: Your natural gift..."
     menu:
-        "Make things happen, manifest": $ scores["Red"] += 2
-        "Create, enjoy, connect with pleasure": $ scores["Orange"] += 2
-        "Decide, lead, trust yourself": $ scores["Yellow"] += 2
-        "Heal, listen, love unconditionally": $ scores["Green"] += 2
-        "Express your truth, communicate bridge": $ scores["Blue"] += 2
-        "See the invisible, trust your intuition": $ scores["Indigo"] += 2
-        "Elevate, inspire, serve from the soul": $ scores["Violet"] += 2
+        "Make things happen, manifest":
+            $ scores["Red"] += 2
+        "Create, enjoy, connect with pleasure":
+            $ scores["Orange"] += 2
+        "Decide, lead, trust yourself":
+            $ scores["Yellow"] += 2
+        "Heal, listen, love unconditionally":
+            $ scores["Green"] += 2
+        "Express your truth, communicate bridge":
+            $ scores["Blue"] += 2
+        "See the invisible, trust your intuition":
+            $ scores["Indigo"] += 2
+        "Elevate, inspire, serve from the soul":
+            $ scores["Violet"] += 2
 
     m 3eub "Question 4: Your current challenge..."
     menu:
-        "Fear, insecurity, paralysis": $ scores["Red"] += 1
-        "Guilt, repression, rigidity": $ scores["Orange"] += 1
-        "Doubt, victimhood, dispersion": $ scores["Yellow"] += 1
-        "Resentment, codependency, emptiness": $ scores["Green"] += 1
-        "Fear of speaking, lies, closed throat": $ scores["Blue"] += 1
-        "Confusion, disconnection, skepticism": $ scores["Indigo"] += 1
-        "Material attachment, cynicism, superior disconnection": $ scores["Violet"] += 1
+        "Fear, insecurity, paralysis":
+            $ scores["Red"] += 1
+        "Guilt, repression, rigidity":
+            $ scores["Orange"] += 1
+        "Doubt, victimhood, dispersion":
+            $ scores["Yellow"] += 1
+        "Resentment, codependency, emptiness":
+            $ scores["Green"] += 1
+        "Fear of speaking, lies, closed throat":
+            $ scores["Blue"] += 1
+        "Confusion, disconnection, skepticism":
+            $ scores["Indigo"] += 1
+        "Material attachment, cynicism, superior disconnection":
+            $ scores["Violet"] += 1
 
     python:
         winner = max(scores, key=scores.get)
@@ -2776,26 +2904,26 @@ label pp2_test_color_aura:
 
 init 5 python:
     pp2_locked_event_requirements = {
-        "pp2_technology_humanity": (3300, 38),
-        "pp2_history_winners": (3400, 42),
-        "pp2_rock_art": (3500, 44),
-        "pp2_rite_step": (3600, 46),
-        "pp2_lost_tradition": (3700, 48),
+        "pp2_tecnologia_humanidad": (3300, 38),
+        "pp2_historia_ganadores": (3400, 42),
+        "pp2_arte_rupestre": (3500, 44),
+        "pp2_rito_paso": (3600, 46),
+        "pp2_tradicion_perdida": (3700, 48),
         "pp2_sombra_jung": (3800, 50),
-        "pp2_attachment_style": (3900, 52),
-        "pp2_learned_resilience": (4000, 54),
-        "pp2_false_memory": (4100, 56),
-        "pp2_therapy_stigma": (4200, 58),
-        "pp2_unconscious_collective": (4300, 60),
+        "pp2_apego_estilo": (3900, 52),
+        "pp2_resiliencia_aprendida": (4000, 54),
+        "pp2_memoria_falsa": (4100, 56),
+        "pp2_terapia_estigma": (4200, 58),
+        "pp2_inconsciente_colectivo": (4300, 60),
         "pp2_arte_ia": (4400, 62),
         "pp2_arte_sana": (4500, 64),
-        "pp2_climate_change_hope": (4600, 66),
+        "pp2_cambio_climatico_esperanza": (4600, 66),
         "pp2_extincion_deextincion": (4700, 68),
-        "pp2_green_city": (4800, 70),
-        "pp2_ground_connection": (4900, 72),
-        "pp2_test_archetype": (1500, 15),
-        "pp2_test_learning_style": (3000, 30),
-        "pp2_test_station_alma": (5000, 50),
+        "pp2_ciudad_verde": (4800, 70),
+        "pp2_conexion_tierra": (4900, 72),
+        "pp2_test_arquetipo": (1500, 15),
+        "pp2_test_estilo_aprendizaje": (3000, 30),
+        "pp2_test_estacion_alma": (5000, 50),
         "pp2_test_color_aura": (5000, 50),
     }
 
