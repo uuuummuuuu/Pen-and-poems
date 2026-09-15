@@ -19,19 +19,19 @@ init 5 python:
         """
         affection = getattr(persistent, 'affection', 0)
         progress = getattr(persistent, 'pp_progreso', 0)
-        if required_event and not getattr(persistent, f'pp_saw_{required_event}', False):
+        if required_event and not getattr(persistent, 'pp_saw_' + required_event, False):
             return False
         return affection >= required_affection or progress >= required_progress
 
     def pp_mark_seen(topic_name):
         """Marca un tema como visto para evitar repeticiones."""
-        if not hasattr(persistent, "pp_vistos"):
+        if not hasattr(persistent, "pp_vistos") or not isinstance(persistent.pp_vistos, set):
             persistent.pp_vistos = set()
         persistent.pp_vistos.add(topic_name)
 
     def pp_was_seen(topic_name):
         """Verifica si un tema ya fue visto."""
-        if not hasattr(persistent, "pp_vistos"):
+        if not hasattr(persistent, "pp_vistos") or not isinstance(persistent.pp_vistos, set):
             persistent.pp_vistos = set()
         return topic_name in persistent.pp_vistos
 
