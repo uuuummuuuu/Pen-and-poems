@@ -19,19 +19,19 @@ init 5 python:
         """
         affection = getattr(persistent, 'affection', 0)
         progress = getattr(persistent, 'pp_progreso', 0)
-        if required_event and not getattr(persistent, f'pp_saw_{required_event}', False):
+        if required_event and not getattr(persistent, 'pp_saw_' + required_event, False):
             return False
         return affection >= required_affection or progress >= required_progress
 
     def pp_mark_seen(topic_name):
         """Mark a topic as viewed to avoid repetitions."""
-        if not hasattr(persistent, "pp_vistos"):
+        if not hasattr(persistent, "pp_vistos") or not isinstance(persistent.pp_vistos, set):
             persistent.pp_vistos = set()
         persistent.pp_vistos.add(topic_name)
 
     def pp_was_seen(topic_name):
         """Check if a topic has already been viewed."""
-        if not hasattr(persistent, "pp_vistos"):
+        if not hasattr(persistent, "pp_vistos") or not isinstance(persistent.pp_vistos, set):
             persistent.pp_vistos = set()
         return topic_name in persistent.pp_vistos
 
@@ -40,7 +40,7 @@ init 5 python:
     addEvent(Event(persistent.event_database, eventlabel="monika_tomatina", category=['eventos'], prompt="What do you think of Tomatina, Monika?", pool=True, unlocked=True))
 
 label monika_tomatina:
-    m 1esd "La Tomatina? Yes, I know her!"
+    m 1esd "The Tomatina? Yes, I know it!"
     m 1eub "It is a festival celebrated in Buñol, Spain, where people throw tomatoes at each other."
     m 3esc "It started many years ago, almost by accident, and over time it became a tradition."
     m 3eub "Thousands of people gather in the streets, all laughing and covered in tomato juice."
