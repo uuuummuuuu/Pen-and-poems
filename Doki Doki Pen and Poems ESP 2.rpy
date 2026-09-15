@@ -20,6 +20,12 @@ init 5 python:
         persistent.pp2_progreso = 0  # Progreso general del mod (0-102)
     if not hasattr(persistent, "pp2_minijuego_stats"):
         persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
+    elif not isinstance(persistent.pp2_minijuego_stats, dict):
+        persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
+    else:
+        persistent.pp2_minijuego_stats.setdefault("wins", 0)
+        persistent.pp2_minijuego_stats.setdefault("losses", 0)
+        persistent.pp2_minijuego_stats.setdefault("played", 0)
     if not hasattr(persistent, "pp2_test_results"):
         persistent.pp2_test_results = {}
 
@@ -30,8 +36,8 @@ init 5 python:
 init 5 python:
     def pp2_check_unlock(topic_name, required_affection=0, required_progress=0):
         """
-        Verifica si un tema debe estar desbloqueado.
-        Se usa en callbacks espontáneos (Monika habla sola).
+                Verifica si un tema debe estar desbloqueado.
+                Se usa en callbacks espontáneos (Monika habla sola).
         """
         affection = getattr(persistent, 'affection', 0)
         progress = getattr(persistent, 'pp2_progreso', 0)
@@ -39,13 +45,13 @@ init 5 python:
 
     def pp2_mark_seen(topic_name):
         """Marca un tema como visto para evitar repeticiones."""
-        if not hasattr(persistent, "pp2_vistos"):
+        if not hasattr(persistent, "pp2_vistos") or not isinstance(persistent.pp2_vistos, set):
             persistent.pp2_vistos = set()
         persistent.pp2_vistos.add(topic_name)
 
     def pp2_was_seen(topic_name):
         """Verifica si un tema ya fue visto."""
-        if not hasattr(persistent, "pp2_vistos"):
+        if not hasattr(persistent, "pp2_vistos") or not isinstance(persistent.pp2_vistos, set):
             persistent.pp2_vistos = set()
         return topic_name in persistent.pp2_vistos
 
@@ -2328,7 +2334,8 @@ label pp2_acertijo_logico:
     $ _history_list.pop()
     menu:
         m "¿Otro acertijo?{fast}"
-        "Sí": jump pp2_acertijo_logico
+        "Sí":
+            jump pp2_acertijo_logico
         "No":
             m 1hub "¡Bien jugado! Los acertijos mantienen el cerebro joven~"
             return "love"
@@ -2397,7 +2404,8 @@ label pp2_trivia_aleatoria:
         $ _history_list.pop()
         menu:
             m "¿Otra trivia?{fast}"
-            "Sí": jump pp2_trivia_aleatoria
+            "Sí":
+                jump pp2_trivia_aleatoria
             "No":
                 m 1hub "¡Gracias por jugar! El conocimiento compartido es el mejor~"
                 return "love"
@@ -2412,31 +2420,47 @@ label pp2_test_elemento:
     m 1eua "¿Listo para descubrir tu elemento, [player]? Es un juego, pero... a veces los juegos dicen verdades."
     m 3eub "Pregunta 1: Cuando te enfrentas a un problema difícil, ¿qué haces?"
     menu:
-        "Lo ataco de frente, con energía": $ scores["Fuego"] += 2
-        "Lo analizo con calma, busco la raíz": $ scores["Aire"] += 2
-        "Me adapto, fluyo con la situación": $ scores["Agua"] += 2
-        "Construyo una base sólida paso a paso": $ scores["Tierra"] += 2
+        "Lo ataco de frente, con energía":
+            $ scores["Fuego"] += 2
+        "Lo analizo con calma, busco la raíz":
+            $ scores["Aire"] += 2
+        "Me adapto, fluyo con la situación":
+            $ scores["Agua"] += 2
+        "Construyo una base sólida paso a paso":
+            $ scores["Tierra"] += 2
 
     m 3eub "Pregunta 2: ¿Cómo recargas energías?"
     menu:
-        "Haciendo algo intenso: deporte, crear, debatir": $ scores["Fuego"] += 2
-        "Estando solo, pensando, leyendo": $ scores["Aire"] += 2
-        "Cerca del agua, o cuidando de otros": $ scores["Agua"] += 2
-        "Con rutinas, naturaleza, cosas tangibles": $ scores["Tierra"] += 2
+        "Haciendo algo intenso: deporte, crear, debatir":
+            $ scores["Fuego"] += 2
+        "Estando solo, pensando, leyendo":
+            $ scores["Aire"] += 2
+        "Cerca del agua, o cuidando de otros":
+            $ scores["Agua"] += 2
+        "Con rutinas, naturaleza, cosas tangibles":
+            $ scores["Tierra"] += 2
 
     m 3eub "Pregunta 3: Tu mayor fortaleza..."
     menu:
-        "La pasión y el coraje": $ scores["Fuego"] += 2
-        "La intuición y la empatía": $ scores["Agua"] += 2
-        "La paciencia y la constancia": $ scores["Tierra"] += 2
-        "La curiosidad y la claridad mental": $ scores["Aire"] += 2
+        "La pasión y el coraje":
+            $ scores["Fuego"] += 2
+        "La intuición y la empatía":
+            $ scores["Agua"] += 2
+        "La paciencia y la constancia":
+            $ scores["Tierra"] += 2
+        "La curiosidad y la claridad mental":
+            $ scores["Aire"] += 2
 
     m 3eub "Pregunta 4: ¿Qué te asusta más?"
     menu:
-        "El estancamiento, la apatía": $ scores["Fuego"] += 2
-        "El conflicto, la desconexión emocional": $ scores["Agua"] += 2
-        "La inestabilidad, perder el control": $ scores["Tierra"] += 2
-        "La rigidez, no poder pensar libre": $ scores["Aire"] += 2
+        "El estancamiento, la apatía":
+            $ scores["Fuego"] += 2
+        "El conflicto, la desconexión emocional":
+            $ scores["Agua"] += 2
+        "La inestabilidad, perder el control":
+            $ scores["Tierra"] += 2
+        "La rigidez, no poder pensar libre":
+            $ scores["Aire"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2467,39 +2491,63 @@ label pp2_test_arquetipo:
     m 1eua "Los arquetipos de Jung... patrones universales que habitamos. ¿Cuál late en ti?"
     m 3eub "Pregunta 1: ¿Qué te impulsa a actuar?"
     menu:
-        "Superar retos, demostrar valía": $ scores["Heroe"] += 2
-        "Entender, encontrar la verdad": $ scores["Sabio"] += 2
-        "Proteger, aliviar el sufrimiento ajeno": $ scores["Cuidador"] += 2
-        "Descubrir, vivir nuevas experiencias": $ scores["Explorador"] += 2
-        "Expresar, dar forma a tu visión": $ scores["Creador"] += 2
-        "Ordenar, liderar, dejar legado": $ scores["Gobernante"] += 2
+        "Superar retos, demostrar valía":
+            $ scores["Heroe"] += 2
+        "Entender, encontrar la verdad":
+            $ scores["Sabio"] += 2
+        "Proteger, aliviar el sufrimiento ajeno":
+            $ scores["Cuidador"] += 2
+        "Descubrir, vivir nuevas experiencias":
+            $ scores["Explorador"] += 2
+        "Expresar, dar forma a tu visión":
+            $ scores["Creador"] += 2
+        "Ordenar, liderar, dejar legado":
+            $ scores["Gobernante"] += 2
 
     m 3eub "Pregunta 2: En una crisis, tu instinto es..."
     menu:
-        "Actuar, enfrentar el peligro": $ scores["Heroe"] += 2
-        "Analizar, buscar la causa raíz": $ scores["Sabio"] += 2
-        "Cuidar a los vulnerables": $ scores["Cuidador"] += 2
-        "Buscar una salida, un nuevo camino": $ scores["Explorador"] += 2
-        "Imaginar una solución creativa": $ scores["Creador"] += 2
-        "Tomar el mando, organizar": $ scores["Gobernante"] += 2
+        "Actuar, enfrentar el peligro":
+            $ scores["Heroe"] += 2
+        "Analizar, buscar la causa raíz":
+            $ scores["Sabio"] += 2
+        "Cuidar a los vulnerables":
+            $ scores["Cuidador"] += 2
+        "Buscar una salida, un nuevo camino":
+            $ scores["Explorador"] += 2
+        "Imaginar una solución creativa":
+            $ scores["Creador"] += 2
+        "Tomar el mando, organizar":
+            $ scores["Gobernante"] += 2
 
     m 3eub "Pregunta 3: Tu sombra... lo que cuestas aceptar..."
     menu:
-        "La vulnerabilidad, parecer débil": $ scores["Heroe"] += 1
-        "La incertidumbre, no saber": $ scores["Sabio"] += 1
-        "El egoísmo, poner límites": $ scores["Cuidador"] += 1
-        "El compromiso, echar raíces": $ scores["Explorador"] += 1
-        "La imperfección, el bloqueo creativo": $ scores["Creador"] += 1
-        "El caos, perder el control": $ scores["Gobernante"] += 1
+        "La vulnerabilidad, parecer débil":
+            $ scores["Heroe"] += 1
+        "La incertidumbre, no saber":
+            $ scores["Sabio"] += 1
+        "El egoísmo, poner límites":
+            $ scores["Cuidador"] += 1
+        "El compromiso, echar raíces":
+            $ scores["Explorador"] += 1
+        "La imperfección, el bloqueo creativo":
+            $ scores["Creador"] += 1
+        "El caos, perder el control":
+            $ scores["Gobernante"] += 1
 
     m 3eub "Pregunta 4: ¿Cómo quieres que te recuerden?"
     menu:
-        "Como alguien que nunca se rindió": $ scores["Heroe"] += 2
-        "Como alguien que iluminó mentes": $ scores["Sabio"] += 2
-        "Como alguien que amó sin medida": $ scores["Cuidador"] += 2
-        "Como alguien que vivió mil vidas": $ scores["Explorador"] += 2
-        "Como alguien que creó belleza": $ scores["Creador"] += 2
-        "Como alguien que construyó algo duradero": $ scores["Gobernante"] += 2
+        "Como alguien que nunca se rindió":
+            $ scores["Heroe"] += 2
+        "Como alguien que iluminó mentes":
+            $ scores["Sabio"] += 2
+        "Como alguien que amó sin medida":
+            $ scores["Cuidador"] += 2
+        "Como alguien que vivió mil vidas":
+            $ scores["Explorador"] += 2
+        "Como alguien que creó belleza":
+            $ scores["Creador"] += 2
+        "Como alguien que construyó algo duradero":
+            $ scores["Gobernante"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2536,35 +2584,55 @@ label pp2_test_lenguaje_amor:
     m 1eua "Los 5 lenguajes del amor, [player]... Gary Chapman los nombró, pero nosotros los vivimos."
     m 3eub "Pregunta 1: ¿Qué te hace sentir MÁS amado?"
     menu:
-        "Que me digan 'te quiero', 'estoy orgulloso', 'vales mucho'": $ scores["Palabras"] += 3
-        "Que dediquen tiempo SOLO a mí, sin distracciones": $ scores["Tiempo"] += 3
-        "Recibir un detalle pensado, aunque sea pequeño": $ scores["Regalos"] += 3
-        "Que hagan algo por mí sin que lo pida": $ scores["Actos"] += 3
-        "Un abrazo, una mano en el hombro, cercanía física": $ scores["Contacto"] += 3
+        "Que me digan 'te quiero', 'estoy orgulloso', 'vales mucho'":
+            $ scores["Palabras"] += 3
+        "Que dediquen tiempo SOLO a mí, sin distracciones":
+            $ scores["Tiempo"] += 3
+        "Recibir un detalle pensado, aunque sea pequeño":
+            $ scores["Regalos"] += 3
+        "Que hagan algo por mí sin que lo pida":
+            $ scores["Actos"] += 3
+        "Un abrazo, una mano en el hombro, cercanía física":
+            $ scores["Contacto"] += 3
 
     m 3eub "Pregunta 2: ¿Cómo EXPRESAS tú el amor naturalmente?"
     menu:
-        "Escribo notas, digo cosas bonitas, afirmo": $ scores["Palabras"] += 2
-        "Planeo citas, escucho de verdad, estoy presente": $ scores["Tiempo"] += 2
-        "Regalo cosas que sé que le gustan": $ scores["Regalos"] += 2
-        "Arreglo cosas, ayudo, hago la vida más fácil": $ scores["Actos"] += 2
-        "Abrazo, toco, busco el contacto": $ scores["Contacto"] += 2
+        "Escribo notas, digo cosas bonitas, afirmo":
+            $ scores["Palabras"] += 2
+        "Planeo citas, escucho de verdad, estoy presente":
+            $ scores["Tiempo"] += 2
+        "Regalo cosas que sé que le gustan":
+            $ scores["Regalos"] += 2
+        "Arreglo cosas, ayudo, hago la vida más fácil":
+            $ scores["Actos"] += 2
+        "Abrazo, toco, busco el contacto":
+            $ scores["Contacto"] += 2
 
     m 3eub "Pregunta 3: ¿Qué te duele más si FALTA?"
     menu:
-        "Silencio, críticas, nada de validación verbal": $ scores["Palabras"] += 2
-        "Que estén 'ahí' pero distraídos, sin mirarme": $ scores["Tiempo"] += 2
-        "Ningún detalle, ni en fechas señaladas": $ scores["Regalos"] += 2
-        "Tenerlo que hacer todo yo solo": $ scores["Actos"] += 2
-        "Fría distancia, nada de contacto": $ scores["Contacto"] += 2
+        "Silencio, críticas, nada de validación verbal":
+            $ scores["Palabras"] += 2
+        "Que estén 'ahí' pero distraídos, sin mirarme":
+            $ scores["Tiempo"] += 2
+        "Ningún detalle, ni en fechas señaladas":
+            $ scores["Regalos"] += 2
+        "Tenerlo que hacer todo yo solo":
+            $ scores["Actos"] += 2
+        "Fría distancia, nada de contacto":
+            $ scores["Contacto"] += 2
 
     m 3eub "Pregunta 4: Tu cita ideal..."
     menu:
-        "Charla profunda toda la noche": $ scores["Palabras"] += 1
-        "Un paseo sin móvil, solo nosotros": $ scores["Tiempo"] += 1
-        "Intercambiar pequeños regalos significativos": $ scores["Regalos"] += 1
-        "Cocinar juntos, arreglar algo, construir": $ scores["Actos"] += 1
-        "Cine acurrucados, manos entrelazadas": $ scores["Contacto"] += 1
+        "Charla profunda toda la noche":
+            $ scores["Palabras"] += 1
+        "Un paseo sin móvil, solo nosotros":
+            $ scores["Tiempo"] += 1
+        "Intercambiar pequeños regalos significativos":
+            $ scores["Regalos"] += 1
+        "Cocinar juntos, arreglar algo, construir":
+            $ scores["Actos"] += 1
+        "Cine acurrucados, manos entrelazadas":
+            $ scores["Contacto"] += 1
 
     python:
         winner = max(scores, key=scores.get)
@@ -2598,31 +2666,47 @@ label pp2_test_estilo_aprendizaje:
     m 1eua "Todos aprendemos distinto, [player]. No hay 'mejor'... solo TU forma."
     m 3eub "Pregunta 1: Para entender algo nuevo, ¿qué prefieres?"
     menu:
-        "Diagramas, mapas mentales, esquemas, videos": $ scores["Visual"] += 3
-        "Explicaciones orales, podcasts, debatir en voz alta": $ scores["Auditivo"] += 3
-        "Probar, tocar, hacer, experimentar, simular": $ scores["Kinestesico"] += 3
-        "Leer artículos, tomar notas, escribir resúmenes": $ scores["Lectura"] += 3
+        "Diagramas, mapas mentales, esquemas, videos":
+            $ scores["Visual"] += 3
+        "Explicaciones orales, podcasts, debatir en voz alta":
+            $ scores["Auditivo"] += 3
+        "Probar, tocar, hacer, experimentar, simular":
+            $ scores["Kinestesico"] += 3
+        "Leer artículos, tomar notas, escribir resúmenes":
+            $ scores["Lectura"] += 3
 
     m 3eub "Pregunta 2: Cuando estudias, ¿qué haces instintivamente?"
     menu:
-        "Subrayo con colores, hago dibujos, grafico": $ scores["Visual"] += 2
-        "Me lo explico a mí mismo en voz alta, grabo audios": $ scores["Auditivo"] += 2
-        "Muevo las manos, camino, uso objetos físicos": $ scores["Kinestesico"] += 2
-        "Escribo fichas, hago esquemas de texto, leo y releo": $ scores["Lectura"] += 2
+        "Subrayo con colores, hago dibujos, grafico":
+            $ scores["Visual"] += 2
+        "Me lo explico a mí mismo en voz alta, grabo audios":
+            $ scores["Auditivo"] += 2
+        "Muevo las manos, camino, uso objetos físicos":
+            $ scores["Kinestesico"] += 2
+        "Escribo fichas, hago esquemas de texto, leo y releo":
+            $ scores["Lectura"] += 2
 
     m 3eub "Pregunta 3: ¿Qué te distrae MÁS?"
     menu:
-        "Desorden visual, paredes blancas, texto denso sin imágenes": $ scores["Visual"] += 1
-        "Ruido de fondo, silencio absoluto, voces lejanas": $ scores["Auditivo"] += 1
-        "Estar quieto demasiado tiempo, silla incómoda": $ scores["Kinestesico"] += 1
-        "Textos mal escritos, falta de estructura lógica": $ scores["Lectura"] += 1
+        "Desorden visual, paredes blancas, texto denso sin imágenes":
+            $ scores["Visual"] += 1
+        "Ruido de fondo, silencio absoluto, voces lejanas":
+            $ scores["Auditivo"] += 1
+        "Estar quieto demasiado tiempo, silla incómoda":
+            $ scores["Kinestesico"] += 1
+        "Textos mal escritos, falta de estructura lógica":
+            $ scores["Lectura"] += 1
 
     m 3eub "Pregunta 4: Tu forma ideal de REPASAR..."
     menu:
-        "Mapas conceptuales, flashcards visuales": $ scores["Visual"] += 2
-        "Explicárselo a alguien, grabarme y escucharme": $ scores["Auditivo"] += 2
-        "Práctica, problemas, enseñar haciéndolo": $ scores["Kinestesico"] += 2
-        "Resúmenes escritos, fichas de memoria, reescribir": $ scores["Lectura"] += 2
+        "Mapas conceptuales, flashcards visuales":
+            $ scores["Visual"] += 2
+        "Explicárselo a alguien, grabarme y escucharme":
+            $ scores["Auditivo"] += 2
+        "Práctica, problemas, enseñar haciéndolo":
+            $ scores["Kinestesico"] += 2
+        "Resúmenes escritos, fichas de memoria, reescribir":
+            $ scores["Lectura"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2653,31 +2737,47 @@ label pp2_test_estacion_alma:
     m 1eua "Las estaciones no son solo clima, [player]. Son estados del alma. Ciclos internos."
     m 3eub "Pregunta 1: ¿En qué momento te sientes MÁS tú?"
     menu:
-        "Cuando todo renace, hay proyectos nuevos, esperanza": $ scores["Primavera"] += 3
-        "Cuando la vida arde, intensidad, pasión, luz larga": $ scores["Verano"] += 3
-        "Cuando maduran las cosas, hay cosecha, calma, nostalgia dulce": $ scores["Otoño"] += 3
-        "Cuando el silencio ayuda, hay introspección, quietud, esencia": $ scores["Invierno"] += 3
+        "Cuando todo renace, hay proyectos nuevos, esperanza":
+            $ scores["Primavera"] += 3
+        "Cuando la vida arde, intensidad, pasión, luz larga":
+            $ scores["Verano"] += 3
+        "Cuando maduran las cosas, hay cosecha, calma, nostalgia dulce":
+            $ scores["Otoño"] += 3
+        "Cuando el silencio ayuda, hay introspección, quietud, esencia":
+            $ scores["Invierno"] += 3
 
     m 3eub "Pregunta 2: Tu relación con el CAMBIO..."
     menu:
-        "Lo abrazo, lo busco, soy el cambio": $ scores["Primavera"] += 2
-        "Lo vivo con intensidad, a veces me quemo": $ scores["Verano"] += 2
-        "Lo acepto, suelto lo que ya no sirve": $ scores["Otoño"] += 2
-        "Lo observo desde la quietud, encuentro lo permanente": $ scores["Invierno"] += 2
+        "Lo abrazo, lo busco, soy el cambio":
+            $ scores["Primavera"] += 2
+        "Lo vivo con intensidad, a veces me quemo":
+            $ scores["Verano"] += 2
+        "Lo acepto, suelto lo que ya no sirve":
+            $ scores["Otoño"] += 2
+        "Lo observo desde la quietud, encuentro lo permanente":
+            $ scores["Invierno"] += 2
 
     m 3eub "Pregunta 3: ¿Qué necesitas cuando estás mal?"
     menu:
-        "Algo nuevo que ilusione, un proyecto, una semilla": $ scores["Primavera"] += 2
-        "Calor, gente, expresión, desahogo, catarsis": $ scores["Verano"] += 2
-        "Tiempo, espacio, procesar, dejar caer hojas": $ scores["Otoño"] += 2
-        "Silencio, cobijo, cero demandas, solo ser": $ scores["Invierno"] += 2
+        "Algo nuevo que ilusione, un proyecto, una semilla":
+            $ scores["Primavera"] += 2
+        "Calor, gente, expresión, desahogo, catarsis":
+            $ scores["Verano"] += 2
+        "Tiempo, espacio, procesar, dejar caer hojas":
+            $ scores["Otoño"] += 2
+        "Silencio, cobijo, cero demandas, solo ser":
+            $ scores["Invierno"] += 2
 
     m 3eub "Pregunta 4: Tu 'superpoder' emocional..."
     menu:
-        "La esperanza inquebrantable, reinventarme": $ scores["Primavera"] += 2
-        "La vitalidad contagiosa, amar sin medida": $ scores["Verano"] += 2
-        "La sabiduría de soltar, la gratitud profunda": $ scores["Otoño"] += 2
-        "La resistencia, la claridad en la oscuridad": $ scores["Invierno"] += 2
+        "La esperanza inquebrantable, reinventarme":
+            $ scores["Primavera"] += 2
+        "La vitalidad contagiosa, amar sin medida":
+            $ scores["Verano"] += 2
+        "La sabiduría de soltar, la gratitud profunda":
+            $ scores["Otoño"] += 2
+        "La resistencia, la claridad en la oscuridad":
+            $ scores["Invierno"] += 2
 
     python:
         winner = max(scores, key=scores.get)
@@ -2708,43 +2808,71 @@ label pp2_test_color_aura:
     m 1eua "El aura... campo energético, huella invisible. Juguemos a ver la tuya, [player]."
     m 3eub "Pregunta 1: ¿Qué energía sientes HOY como base?"
     menu:
-        "Vitalidad, instinto, supervivencia, acción": $ scores["Rojo"] += 3
-        "Creatividad, placer, emoción, flujo": $ scores["Naranja"] += 3
-        "Poder personal, confianza, claridad mental": $ scores["Amarillo"] += 3
-        "Amor, compasión, conexión, sanación": $ scores["Verde"] += 3
-        "Comunicación, verdad, expresión, calma": $ scores["Azul"] += 3
-        "Intuición, visión interior, sabiduría": $ scores["Indigo"] += 3
-        "Espiritualidad, trascendencia, unidad, paz": $ scores["Violeta"] += 3
+        "Vitalidad, instinto, supervivencia, acción":
+            $ scores["Rojo"] += 3
+        "Creatividad, placer, emoción, flujo":
+            $ scores["Naranja"] += 3
+        "Poder personal, confianza, claridad mental":
+            $ scores["Amarillo"] += 3
+        "Amor, compasión, conexión, sanación":
+            $ scores["Verde"] += 3
+        "Comunicación, verdad, expresión, calma":
+            $ scores["Azul"] += 3
+        "Intuición, visión interior, sabiduría":
+            $ scores["Indigo"] += 3
+        "Espiritualidad, trascendencia, unidad, paz":
+            $ scores["Violeta"] += 3
 
     m 3eub "Pregunta 2: ¿Qué COLOR te llama AHORA sin pensar?"
     menu:
-        "Rojo intenso": $ scores["Rojo"] += 2
-        "Naranja cálido": $ scores["Naranja"] += 2
-        "Amarillo dorado": $ scores["Amarillo"] += 2
-        "Verde esmeralda": $ scores["Verde"] += 2
-        "Azul profundo": $ scores["Azul"] += 2
-        "Índigo misterioso": $ scores["Indigo"] += 2
-        "Violeta etéreo": $ scores["Violeta"] += 2
+        "Rojo intenso":
+            $ scores["Rojo"] += 2
+        "Naranja cálido":
+            $ scores["Naranja"] += 2
+        "Amarillo dorado":
+            $ scores["Amarillo"] += 2
+        "Verde esmeralda":
+            $ scores["Verde"] += 2
+        "Azul profundo":
+            $ scores["Azul"] += 2
+        "Índigo misterioso":
+            $ scores["Indigo"] += 2
+        "Violeta etéreo":
+            $ scores["Violeta"] += 2
 
     m 3eub "Pregunta 3: Tu don natural..."
     menu:
-        "Hacer realidad las cosas, manifestar": $ scores["Rojo"] += 2
-        "Crear, disfrutar, conectar con placer": $ scores["Naranja"] += 2
-        "Decidir, liderar, confiar en ti": $ scores["Amarillo"] += 2
-        "Sanar, escuchar, amar incondicional": $ scores["Verde"] += 2
-        "Expresar tu verdad, comunicar puente": $ scores["Azul"] += 2
-        "Ver lo invisible, confiar tu intuición": $ scores["Indigo"] += 2
-        "Elevar, inspirar, servir desde el alma": $ scores["Violeta"] += 2
+        "Hacer realidad las cosas, manifestar":
+            $ scores["Rojo"] += 2
+        "Crear, disfrutar, conectar con placer":
+            $ scores["Naranja"] += 2
+        "Decidir, liderar, confiar en ti":
+            $ scores["Amarillo"] += 2
+        "Sanar, escuchar, amar incondicional":
+            $ scores["Verde"] += 2
+        "Expresar tu verdad, comunicar puente":
+            $ scores["Azul"] += 2
+        "Ver lo invisible, confiar tu intuición":
+            $ scores["Indigo"] += 2
+        "Elevar, inspirar, servir desde el alma":
+            $ scores["Violeta"] += 2
 
     m 3eub "Pregunta 4: Tu reto actual..."
     menu:
-        "Miedo, inseguridad, parálisis": $ scores["Rojo"] += 1
-        "Culpa, represión, rigidez": $ scores["Naranja"] += 1
-        "Duda, victimismo, dispersión": $ scores["Amarillo"] += 1
-        "Resentimiento, codependencia, vacío": $ scores["Verde"] += 1
-        "Miedo a hablar, mentiras, garganta cerrada": $ scores["Azul"] += 1
-        "Confusión, desconexión, escepticismo": $ scores["Indigo"] += 1
-        "Apego material, cinismo, desconexión superior": $ scores["Violeta"] += 1
+        "Miedo, inseguridad, parálisis":
+            $ scores["Rojo"] += 1
+        "Culpa, represión, rigidez":
+            $ scores["Naranja"] += 1
+        "Duda, victimismo, dispersión":
+            $ scores["Amarillo"] += 1
+        "Resentimiento, codependencia, vacío":
+            $ scores["Verde"] += 1
+        "Miedo a hablar, mentiras, garganta cerrada":
+            $ scores["Azul"] += 1
+        "Confusión, desconexión, escepticismo":
+            $ scores["Indigo"] += 1
+        "Apego material, cinismo, desconexión superior":
+            $ scores["Violeta"] += 1
 
     python:
         winner = max(scores, key=scores.get)
