@@ -2928,6 +2928,6 @@ init 5 python:
     }
 
     for eventlabel, requirements in pp2_locked_event_requirements.items():
-        event = mas_getEV(eventlabel)
+        event = persistent.event_database.get(eventlabel)
         if event is not None:
             event.unlocked = pp2_check_unlock(eventlabel, requirements[0], requirements[1])
