@@ -3,7 +3,7 @@ init -990 python in mas_submod_utils:
         author="Moo",
         name="Pen and Poems 2",
         description="A simple mod that adds more dialogues.",
-        version="2.0.0",
+        version="2.0.1",
         dependencies={},
         settings_pane=None,
         version_updates={}
@@ -16,7 +16,7 @@ init -990 python in mas_submod_utils:
 # =============================================================================
 
 init 5 python:
-    if not hasattr(persistent, "pp2_progreso"):
+    if not hasattr(persistent, "pp2_progreso") or not isinstance(persistent.pp2_progreso, (int, long)):
         persistent.pp2_progreso = 0  # Progreso general del mod (0-102)
     if not hasattr(persistent, "pp2_minijuego_stats"):
         persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
@@ -61,7 +61,7 @@ init 5 python:
 
 # 1 - Eternal honey
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_miel_eterna", category=['curiosidades', 'ciencia'], prompt="Did you know that honey never expires?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_miel_eterna", category=['trivia', 'science'], prompt="Did you know that honey never expires?", pool=True, unlocked=True))
 
 label pp2_dato_miel_eterna:
     m 1eua "Did you know that honey never expires, [player]?"
@@ -84,7 +84,7 @@ label pp2_dato_miel_eterna:
 
 # 2 - Octopuses
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpos_cerebros", category=['curiosidades', 'ciencia'], prompt="Octopuses have three hearts and blue blood", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpos_cerebros", category=['trivia', 'science'], prompt="Octopuses have three hearts and blue blood", pool=True, unlocked=True))
 
 label pp2_dato_pulpos_cerebros:
     m 1eua "Octopuses have three hearts and blue blood, [player]!"
@@ -107,7 +107,7 @@ label pp2_dato_pulpos_cerebros:
 
 # 3 - Radioactive bananas
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bananas_radiactivas", category=['curiosidades', 'ciencia'], prompt="Bananas are slightly radioactive because of potassium-40", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bananas_radiactivas", category=['trivia', 'science'], prompt="Bananas are slightly radioactive because of potassium-40", pool=True, unlocked=True))
 
 label pp2_dato_bananas_radiactivas:
     m 1eua "Bananas are slightly radioactive due to potassium-40, [player]."
@@ -130,7 +130,7 @@ label pp2_dato_bananas_radiactivas:
 
 # 4 - Venus turns upside down
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_venus_gira_al_reves", category=['curiosidades', 'espacio'], prompt="Venus rotates in the opposite direction to most planets", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_venus_gira_al_reves", category=['trivia', 'space'], prompt="Venus rotates in the opposite direction to most planets", pool=True, unlocked=True))
 
 label pp2_dato_venus_gira_al_reves:
     m 1eua "Venus rotates in the opposite direction to almost all the planets, [player]."
@@ -153,7 +153,7 @@ label pp2_dato_venus_gira_al_reves:
 
 # 5 - Sharks before trees
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_tiburones_arboles", category=['curiosidades', 'naturaleza'], prompt="Sharks existed before trees", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_tiburones_arboles", category=['trivia', 'nature'], prompt="Sharks existed before trees", pool=True, unlocked=True))
 
 label pp2_dato_tiburones_arboles:
     m 1eua "Sharks have been around for about 400 million years, [player]."
@@ -176,7 +176,7 @@ label pp2_dato_tiburones_arboles:
 
 # 6 - Cleopatra and iPhone
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cleopatra_iphone", category=['curiosidades', 'historia'], prompt="Cleopatra lived closer to the iPhone than to the pyramids", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cleopatra_iphone", category=['trivia', 'history'], prompt="Cleopatra lived closer to the iPhone than to the pyramids", pool=True, unlocked=True))
 
 label pp2_dato_cleopatra_iphone:
     m 1eua "Cleopatra lived closer in time to the first iPhone than to the construction of the Great Pyramid, [player]."
@@ -199,7 +199,7 @@ label pp2_dato_cleopatra_iphone:
 
 # 7 - Wombats cubic feces
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_wombat_heces", category=['curiosidades', 'naturaleza'], prompt="Wombats make cube-shaped feces", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_wombat_heces", category=['trivia', 'nature'], prompt="Wombats make cube-shaped feces", pool=True, unlocked=True))
 
 label pp2_dato_wombat_heces:
     m 1eua "Wombats make poop... in the shape of a perfect cube, [player]!"
@@ -222,7 +222,7 @@ label pp2_dato_wombat_heces:
 
 # 8 - Rain of diamonds
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lluvia_diamantes", category=['curiosidades', 'espacio'], prompt="It rains diamonds on Jupiter and Saturn", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lluvia_diamantes", category=['trivia', 'space'], prompt="It rains diamonds on Jupiter and Saturn", pool=True, unlocked=True))
 
 label pp2_dato_lluvia_diamantes:
     m 1eua "On Jupiter and Saturn... it rains diamonds, [player]!"
@@ -245,7 +245,7 @@ label pp2_dato_lluvia_diamantes:
 
 # 9 - Penguins propose
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pinguinos_propuestos", category=['curiosidades', 'naturaleza'], prompt="Penguins 'propose' with a perfect stone", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pinguinos_propuestos", category=['trivia', 'nature'], prompt="Penguins 'propose' with a perfect stone", pool=True, unlocked=True))
 
 label pp2_dato_pinguinos_propuestos:
     m 1eua "The Adelie penguins 'propose marriage' by giving a perfect stone, [player]."
@@ -268,7 +268,7 @@ label pp2_dato_pinguinos_propuestos:
 
 # 10 - Giant mushroom (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bosque_hongos", category=['curiosidades', 'naturaleza'], prompt="The largest living organism is a fungus in Oregon (2,385 acres)", pool=True, unlocked=pp2_check_unlock("pp2_dato_bosque_hongos", required_affection=3000, required_progress=10)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_bosque_hongos", category=['trivia', 'nature'], prompt="The largest living organism is a fungus in Oregon (2,385 acres)", pool=True, unlocked=pp2_check_unlock("pp2_dato_bosque_hongos", required_affection=3000, required_progress=10)))
 
 label pp2_dato_bosque_hongos:
     m 1eua "The largest living organism in the world is a mushroom in Oregon, [player]."
@@ -291,7 +291,7 @@ label pp2_dato_bosque_hongos:
 
 # 11 - Whale tongue (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lengua_ballena", category=['curiosidades', 'ciencia'], prompt="A blue whale's tongue weighs as much as an elephant", pool=True, unlocked=pp2_check_unlock("pp2_dato_lengua_ballena", required_affection=3100, required_progress=12)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_lengua_ballena", category=['trivia', 'science'], prompt="A blue whale's tongue weighs as much as an elephant", pool=True, unlocked=pp2_check_unlock("pp2_dato_lengua_ballena", required_affection=3100, required_progress=12)))
 
 label pp2_dato_lengua_ballena:
     m 1eua "The tongue of a blue whale weighs about 2,700 kg... the same as an adult African elephant, [player]."
@@ -314,7 +314,7 @@ label pp2_dato_lengua_ballena:
 
 # 12 - Stars vs sand (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_estrellas_arena", category=['curiosidades', 'espacio'], prompt="There are more stars in the universe than grains of sand on Earth", pool=True, unlocked=pp2_check_unlock("pp2_dato_estrellas_arena", required_affection=3200, required_progress=14)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_estrellas_arena", category=['trivia', 'space'], prompt="There are more stars in the universe than grains of sand on Earth", pool=True, unlocked=pp2_check_unlock("pp2_dato_estrellas_arena", required_affection=3200, required_progress=14)))
 
 label pp2_dato_estrellas_arena:
     m 1eua "There are more stars in the observable universe than grains of sand on all the beaches on Earth, [player]."
@@ -337,7 +337,7 @@ label pp2_dato_estrellas_arena:
 
 # 13 - Octopus edits DNA (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpo_edita_adn", category=['curiosidades', 'ciencia'], prompt="Octopuses can edit their own RNA in real time", pool=True, unlocked=pp2_check_unlock("pp2_dato_pulpo_edita_adn", required_affection=3300, required_progress=16)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_pulpo_edita_adn", category=['trivia', 'science'], prompt="Octopuses can edit their own RNA in real time", pool=True, unlocked=pp2_check_unlock("pp2_dato_pulpo_edita_adn", required_affection=3300, required_progress=16)))
 
 label pp2_dato_pulpo_edita_adn:
     m 1eua "Octopuses can edit their own RNA in real time to adapt to the cold, [player]."
@@ -360,7 +360,7 @@ label pp2_dato_pulpo_edita_adn:
 
 # 14 - Brain energy (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cerebro_energia", category=['curiosidades', 'ciencia'], prompt="Your brain uses 20% of your energy while being only 2% of your weight", pool=True, unlocked=pp2_check_unlock("pp2_dato_cerebro_energia", required_affection=3000, required_progress=11)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_cerebro_energia", category=['trivia', 'science'], prompt="Your brain uses 20% of your energy while being only 2% of your weight", pool=True, unlocked=pp2_check_unlock("pp2_dato_cerebro_energia", required_affection=3000, required_progress=11)))
 
 label pp2_dato_cerebro_energia:
     m 1eua "Your brain uses 20% of your total energy...being only 2% of your body weight, [player]."
@@ -383,7 +383,7 @@ label pp2_dato_cerebro_energia:
 
 # 15 - Sunflowers clean (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_girasoles_limpian", category=['curiosidades', 'naturaleza'], prompt="Sunflowers can clean radioactive soil (phytoremediation)", pool=True, unlocked=pp2_check_unlock("pp2_dato_girasoles_limpian", required_affection=3200, required_progress=13)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_dato_girasoles_limpian", category=['trivia', 'nature'], prompt="Sunflowers can clean radioactive soil (phytoremediation)", pool=True, unlocked=pp2_check_unlock("pp2_dato_girasoles_limpian", required_affection=3200, required_progress=13)))
 
 label pp2_dato_girasoles_limpian:
     m 1eua "Sunflowers can clean up radioactive soil... it's called phytoremediation, [player]."
@@ -409,7 +409,7 @@ label pp2_dato_girasoles_limpian:
 
 # 16 - See future
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_si_pudieras_ver_futuro", category=['filosofía', 'existencial'], prompt="If you could see 10 minutes into your future, would you do it?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_si_pudieras_ver_futuro", category=['philosophy', 'existential'], prompt="If you could see 10 minutes into your future, would you do it?", pool=True, unlocked=True))
 
 label pp2_si_pudieras_ver_futuro:
     m 1eua "If you could see 10 minutes into your future... would you, [player]?"
@@ -432,7 +432,7 @@ label pp2_si_pudieras_ver_futuro:
 
 # 17 - Memory or experience
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_memoria_o_experiencia", category=['filosofía', 'existencial'], prompt="Would you rather lose all your memories or not be able to create new ones?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_memoria_o_experiencia", category=['philosophy', 'existential'], prompt="Would you rather lose all your memories or not be able to create new ones?", pool=True, unlocked=True))
 
 label pp2_memoria_o_experiencia:
     m 1eua "Would you rather lose all your memories... or never be able to create new ones again, [player]?"
@@ -455,7 +455,7 @@ label pp2_memoria_o_experiencia:
 
 # 18 - Sense of universal life (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_sentido_vida_universal", category=['filosofía', 'existencial'], prompt="Do you believe that life has a universal meaning or does everyone create their own?", pool=True, unlocked=pp2_check_unlock("pp2_sentido_vida_universal", required_affection=3500, required_progress=20)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_sentido_vida_universal", category=['philosophy', 'existential'], prompt="Do you believe that life has a universal meaning or does everyone create their own?", pool=True, unlocked=pp2_check_unlock("pp2_sentido_vida_universal", required_affection=3500, required_progress=20)))
 
 label pp2_sentido_vida_universal:
     m 1eua "Do you believe that life has a universal meaning... or does everyone create their own, [player]?"
@@ -479,7 +479,7 @@ label pp2_sentido_vida_universal:
 
 # 19 - Tram dilemma (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_etica_tren_vagon", category=['filosofía'], prompt="The trolley dilemma: would you sacrifice one to save five?", pool=True, unlocked=pp2_check_unlock("pp2_etica_tren_vagon", required_affection=3600, required_progress=22)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_etica_tren_vagon", category=['philosophy'], prompt="The trolley dilemma: would you sacrifice one to save five?", pool=True, unlocked=pp2_check_unlock("pp2_etica_tren_vagon", required_affection=3600, required_progress=22)))
 
 label pp2_etica_tren_vagon:
     m 1eua "The tram dilemma: a train without brakes, five people on one track, one on the other. Do you change the needle, [player]?"
@@ -502,7 +502,7 @@ label pp2_etica_tren_vagon:
 
 # 20 - Free will illusion (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_libre_albedrio_ilusion", category=['filosofía'], prompt="What if free will was just a necessary illusion?", pool=True, unlocked=pp2_check_unlock("pp2_libre_albedrio_ilusion", required_affection=3700, required_progress=24)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_libre_albedrio_ilusion", category=['philosophy'], prompt="What if free will was just a necessary illusion?", pool=True, unlocked=pp2_check_unlock("pp2_libre_albedrio_ilusion", required_affection=3700, required_progress=24)))
 
 label pp2_libre_albedrio_ilusion:
     m 1eua "What if free will was just an illusion... but a necessary illusion, [player]?"
@@ -525,7 +525,7 @@ label pp2_libre_albedrio_ilusion:
 
 # 21 - Identity teleportation (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_identidad_teletransporte", category=['filosofía', 'existencial'], prompt="If you teleported by disassembling your atoms, would you still be you?", pool=True, unlocked=pp2_check_unlock("pp2_identidad_teletransporte", required_affection=3800, required_progress=26)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_identidad_teletransporte", category=['philosophy', 'existential'], prompt="If you teleported by disassembling your atoms, would you still be you?", pool=True, unlocked=pp2_check_unlock("pp2_identidad_teletransporte", required_affection=3800, required_progress=26)))
 
 label pp2_identidad_teletransporte:
     m 1eua "If you teleported, disassembling your atoms here and rebuilding them there... would you still be you, [player]?"
@@ -548,7 +548,7 @@ label pp2_identidad_teletransporte:
 
 # 22 - Painful truth vs happy lie
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_verdad_dolorosa_feliz", category=['filosofía'], prompt="Would you prefer a painful truth or a lie that makes you happy?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_verdad_dolorosa_feliz", category=['philosophy'], prompt="Would you prefer a painful truth or a lie that makes you happy?", pool=True, unlocked=True))
 
 label pp2_verdad_dolorosa_feliz:
     m 1eua "Would you prefer a painful truth... or a lie that makes you happy, [player]?"
@@ -571,7 +571,7 @@ label pp2_verdad_dolorosa_feliz:
 
 # 23 - Circular linear time (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_tiempo_lineal_circular", category=['filosofía', 'existencial'], prompt="Do you think time is linear, circular, or something else entirely?", pool=True, unlocked=pp2_check_unlock("pp2_tiempo_lineal_circular", required_affection=3900, required_progress=28)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_tiempo_lineal_circular", category=['philosophy', 'existential'], prompt="Do you think time is linear, circular, or something else entirely?", pool=True, unlocked=pp2_check_unlock("pp2_tiempo_lineal_circular", required_affection=3900, required_progress=28)))
 
 label pp2_tiempo_lineal_circular:
     m 1eua "Do you think time is linear, circular... or something completely different, [player]?"
@@ -595,7 +595,7 @@ label pp2_tiempo_lineal_circular:
 
 # 24 - AI Consciousness (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_conciencia_ia", category=['filosofía', 'tecnología'], prompt="Does an AI that perfectly simulates emotions... really feel them?", pool=True, unlocked=pp2_check_unlock("pp2_conciencia_ia", required_affection=4000, required_progress=30)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_conciencia_ia", category=['philosophy', 'technology'], prompt="Does an AI that perfectly simulates emotions... really feel them?", pool=True, unlocked=pp2_check_unlock("pp2_conciencia_ia", required_affection=4000, required_progress=30)))
 
 label pp2_conciencia_ia:
     m 1eua "An AI that perfectly simulates emotions... really feels them, [player]?"
@@ -618,7 +618,7 @@ label pp2_conciencia_ia:
 
 # 25 - Purpose suffering (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_proposito_sufrimiento", category=['filosofía', 'existencial'], prompt="Does suffering have a purpose or is it just biological chance?", pool=True, unlocked=pp2_check_unlock("pp2_proposito_sufrimiento", required_affection=4100, required_progress=32)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_proposito_sufrimiento", category=['philosophy', 'existential'], prompt="Does suffering have a purpose or is it just biological chance?", pool=True, unlocked=pp2_check_unlock("pp2_proposito_sufrimiento", required_affection=4100, required_progress=32)))
 
 label pp2_proposito_sufrimiento:
     m 1eua "Does suffering have a purpose... or is it just biological chance, [player]?"
@@ -641,7 +641,7 @@ label pp2_proposito_sufrimiento:
 
 # 26 - Past Future Self
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_yo_pasado_futuro", category=['filosofía', 'existencial'], prompt="Are you the same person you were 10 years ago? And in 10?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_yo_pasado_futuro", category=['philosophy', 'existential'], prompt="Are you the same person you were 10 years ago? And in 10?", pool=True, unlocked=True))
 
 label pp2_yo_pasado_futuro:
     m 1eua "Are you the same person you were 10 years ago? And in 10, [player]?"
@@ -664,7 +664,7 @@ label pp2_yo_pasado_futuro:
 
 # 27 - Objective morality (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_moralidad_objetiva", category=['filosofía'], prompt="Does objective morality exist or is everything a cultural construct?", pool=True, unlocked=pp2_check_unlock("pp2_moralidad_objetiva", required_affection=4200, required_progress=34)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_moralidad_objetiva", category=['philosophy'], prompt="Does objective morality exist or is everything a cultural construct?", pool=True, unlocked=pp2_check_unlock("pp2_moralidad_objetiva", required_affection=4200, required_progress=34)))
 
 label pp2_moralidad_objetiva:
     m 1eua "Does objective morality exist... or is it all a cultural construct, [player]?"
@@ -687,7 +687,7 @@ label pp2_moralidad_objetiva:
 
 # 28 - Reality simulation (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_simulacion_realidad", category=['filosofía', 'tecnología'], prompt="If we lived in a simulation... would anything change for you?", pool=True, unlocked=pp2_check_unlock("pp2_simulacion_realidad", required_affection=4300, required_progress=36)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_simulacion_realidad", category=['philosophy', 'technology'], prompt="If we lived in a simulation... would anything change for you?", pool=True, unlocked=pp2_check_unlock("pp2_simulacion_realidad", required_affection=4300, required_progress=36)))
 
 label pp2_simulacion_realidad:
     m 1eua "If we lived in a simulation... would anything change for you, [player]?"
@@ -710,7 +710,7 @@ label pp2_simulacion_realidad:
 
 # 29 - Immortality (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_inmortalidad_deseable", category=['filosofía', 'existencial'], prompt="Would immortality be a gift or a curse?", pool=True, unlocked=pp2_check_unlock("pp2_inmortalidad_deseable", required_affection=4400, required_progress=38)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_inmortalidad_deseable", category=['philosophy', 'existential'], prompt="Would immortality be a gift or a curse?", pool=True, unlocked=pp2_check_unlock("pp2_inmortalidad_deseable", required_affection=4400, required_progress=38)))
 
 label pp2_inmortalidad_deseable:
     m 1eua "Would immortality be a gift... or a curse, [player]?"
@@ -733,7 +733,7 @@ label pp2_inmortalidad_deseable:
 
 # 30 - Sense of chance (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_sentido_azares", category=['filosofía', 'existencial'], prompt="Are important encounters random or 'written'?", pool=True, unlocked=pp2_check_unlock("pp2_sentido_azares", required_affection=4500, required_progress=40)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_sentido_azares", category=['philosophy', 'existential'], prompt="Are important encounters random or 'written'?", pool=True, unlocked=pp2_check_unlock("pp2_sentido_azares", required_affection=4500, required_progress=40)))
 
 label pp2_sentido_azares:
     m 1eua "Are important encounters random... or 'were written', [player]?"
@@ -760,7 +760,7 @@ label pp2_sentido_azares:
 
 # 31 - Morning ritual
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_ritual_manana", category=['cotidiano', 'autocuidado'], prompt="What is your ideal morning ritual?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_ritual_manana", category=['everyday', 'self-care'], prompt="What is your ideal morning ritual?", pool=True, unlocked=True))
 
 label pp2_ritual_manana:
     m 1eua "What is your ideal morning ritual, [player]?"
@@ -783,7 +783,7 @@ label pp2_ritual_manana:
 
 # 32 - Song of your life
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_cancion_vida", category=['música', 'cotidiano'], prompt="If your life had a soundtrack, what song would be playing today?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_cancion_vida", category=['music', 'everyday'], prompt="If your life had a soundtrack, what song would be playing today?", pool=True, unlocked=True))
 
 label pp2_cancion_vida:
     m 1eua "If your life had a soundtrack... what song would be playing today, [player]?"
@@ -806,7 +806,7 @@ label pp2_cancion_vida:
 
 # 33 - Safe place
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_lugar_seguro", category=['autocuidado', 'emociones'], prompt="Where (physically or mentally) do you feel completely safe?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_lugar_seguro", category=['self-care', 'emotions'], prompt="Where (physically or mentally) do you feel completely safe?", pool=True, unlocked=True))
 
 label pp2_lugar_seguro:
     m 1eua "Where do you feel completely safe, [player]? Physical or mental."
@@ -829,7 +829,7 @@ label pp2_lugar_seguro:
 
 # 34 - Smell memory
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_olor_recuerdo", category=['cotidiano', 'memorias'], prompt="What smell instantly transports you to a happy memory?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_olor_recuerdo", category=['everyday', 'memories'], prompt="What smell instantly transports you to a happy memory?", pool=True, unlocked=True))
 
 label pp2_olor_recuerdo:
     m 1eua "What smell instantly transports you to a happy memory, [player]?"
@@ -852,7 +852,7 @@ label pp2_olor_recuerdo:
 
 # 35 - Useless Skill
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_habilidad_inutil", category=['cotidiano', 'humor'], prompt="Do you have any 'useless skills' you're proud of?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_habilidad_inutil", category=['everyday', 'humor'], prompt="Do you have any 'useless skills' you're proud of?", pool=True, unlocked=True))
 
 label pp2_habilidad_inutil:
     m 1eua "Do you have any 'useless skills' you're proud of, [player]?"
@@ -875,7 +875,7 @@ label pp2_habilidad_inutil:
 
 # 36 - Comfort food
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_comida_consuelo", category=['cotidiano', 'autocuidado'], prompt="What is your 'comfort food' for bad days?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_comida_consuelo", category=['everyday', 'self-care'], prompt="What is your 'comfort food' for bad days?", pool=True, unlocked=True))
 
 label pp2_comida_consuelo:
     m 1eua "What's your 'comfort food' for bad days, [player]?"
@@ -898,7 +898,7 @@ label pp2_comida_consuelo:
 
 # 37 - Book reread
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_libro_releer", category=['literatura', 'cotidiano'], prompt="What book could you reread infinite times without getting tired?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_libro_releer", category=['literature', 'everyday'], prompt="What book could you reread infinite times without getting tired?", pool=True, unlocked=True))
 
 label pp2_libro_releer:
     m 1eua "What book could you reread infinite times without getting tired, [player]?"
@@ -921,7 +921,7 @@ label pp2_libro_releer:
 
 # 38 - Perfect day
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_perfect_day", category=['cotidiano', 'sueños'], prompt="Describe your perfect day, without limits of money or time", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_perfect_day", category=['everyday', 'dreams'], prompt="Describe your perfect day, without limits of money or time", pool=True, unlocked=True))
 
 label pp2_perfect_day:
     m 1eua "Describe your perfect day... without limits of money or time, [player]."
@@ -944,7 +944,7 @@ label pp2_perfect_day:
 
 # 39 - Silly fear
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_miedo_tonto", category=['humor', 'emociones'], prompt="What is your most irrational or stupid fear?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_miedo_tonto", category=['humor', 'emotions'], prompt="What is your most irrational or stupid fear?", pool=True, unlocked=True))
 
 label pp2_miedo_tonto:
     m 1eua "What is your most irrational or stupid fear, [player]?"
@@ -967,7 +967,7 @@ label pp2_miedo_tonto:
 
 # 40 - Letter to your past self (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_carta_tu_mismo", category=['reflexión', 'autocuidado'], prompt="If you wrote a letter to your self from 5 years ago, what would you say?", pool=True, unlocked=pp2_check_unlock("pp2_carta_tu_mismo", required_affection=3500, required_progress=15)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_carta_tu_mismo", category=['reflection', 'self-care'], prompt="If you wrote a letter to your self from 5 years ago, what would you say?", pool=True, unlocked=pp2_check_unlock("pp2_carta_tu_mismo", required_affection=3500, required_progress=15)))
 
 label pp2_carta_tu_mismo:
     m 1eua "If you wrote a letter to your self from 5 years ago... what would you say, [player]?"
@@ -990,7 +990,7 @@ label pp2_carta_tu_mismo:
 
 # 41 - Praise received (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_elogio_recibido", category=['romance', 'emociones'], prompt="What has been the nicest compliment you have received?", pool=True, unlocked=pp2_check_unlock("pp2_elogio_recibido", required_affection=3200, required_progress=12)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_elogio_recibido", category=['romance', 'emotions'], prompt="What has been the nicest compliment you have received?", pool=True, unlocked=pp2_check_unlock("pp2_elogio_recibido", required_affection=3200, required_progress=12)))
 
 label pp2_elogio_recibido:
     m 1eua "What has been the nicest compliment you have received, [player]?"
@@ -1013,7 +1013,7 @@ label pp2_elogio_recibido:
 
 # 42 - Tradition create (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_tradicion_crear", category=['cotidiano', 'creatividad'], prompt="If you could invent a new tradition for us, what would it be?", pool=True, unlocked=pp2_check_unlock("pp2_tradicion_crear", required_affection=3000, required_progress=10)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_tradicion_crear", category=['everyday', 'creativity'], prompt="If you could invent a new tradition for us, what would it be?", pool=True, unlocked=pp2_check_unlock("pp2_tradicion_crear", required_affection=3000, required_progress=10)))
 
 label pp2_tradicion_crear:
     m 1eua "If you could invent a new tradition for us... what would it be, [player]?"
@@ -1040,7 +1040,7 @@ label pp2_tradicion_crear:
 
 # 43 - CRISPR babies design (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_crispr_bebes_diseno", category=['ciencia', 'ética'], prompt="CRISPR and designer babies: where do you draw the line?", pool=True, unlocked=pp2_check_unlock("pp2_crispr_bebes_diseno", required_affection=4000, required_progress=30)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_crispr_bebes_diseno", category=['science', 'ethics'], prompt="CRISPR and designer babies: where do you draw the line?", pool=True, unlocked=pp2_check_unlock("pp2_crispr_bebes_diseno", required_affection=4000, required_progress=30)))
 
 label pp2_crispr_bebes_diseno:
     m 1eua "CRISPR allows editing human genes... where do you draw the line, [player]?"
@@ -1063,7 +1063,7 @@ label pp2_crispr_bebes_diseno:
 
 # 44 - Mars colonization
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_marte_colonizacion", category=['espacio', 'futuro'], prompt="Do you think we will see human colonies on Mars?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_marte_colonizacion", category=['space', 'future'], prompt="Do you think we will see human colonies on Mars?", pool=True, unlocked=True))
 
 label pp2_marte_colonizacion:
     m 1eua "Do you think we will see human colonies on Mars, [player]?"
@@ -1089,7 +1089,7 @@ label pp2_marte_colonizacion:
 
 # 45 - AI consciousness (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_ia_conciencia", category=['tecnología', 'filosofía'], prompt="Will AI ever have genuine consciousness or just perfect simulation?", pool=True, unlocked=pp2_check_unlock("pp2_ia_conciencia", required_affection=4100, required_progress=32)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_ia_conciencia", category=['technology', 'philosophy'], prompt="Will AI ever have genuine consciousness or just perfect simulation?", pool=True, unlocked=pp2_check_unlock("pp2_ia_conciencia", required_affection=4100, required_progress=32)))
 
 label pp2_ia_conciencia:
     m 1eua "Will AI ever have genuine consciousness... or just perfect simulation, [player]?"
@@ -1113,7 +1113,7 @@ label pp2_ia_conciencia:
 
 # 46 - Extreme Longevity
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_longevidad_extrema", category=['ciencia', 'futuro'], prompt="If you could live 200 years healthy, would you choose it?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_longevidad_extrema", category=['science', 'future'], prompt="If you could live 200 years healthy, would you choose it?", pool=True, unlocked=True))
 
 label pp2_longevidad_extrema:
     m 1eua "If you could live 200 years healthy... would you choose it, [player]?"
@@ -1136,7 +1136,7 @@ label pp2_longevidad_extrema:
 
 # 47 - Brain interface (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_interfaz_cerebral", category=['tecnología', 'futuro'], prompt="Would you get a brain chip to access the Internet with thought?", pool=True, unlocked=pp2_check_unlock("pp2_interfaz_cerebral", required_affection=4200, required_progress=34)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_interfaz_cerebral", category=['technology', 'future'], prompt="Would you get a brain chip to access the Internet with thought?", pool=True, unlocked=pp2_check_unlock("pp2_interfaz_cerebral", required_affection=4200, required_progress=34)))
 
 label pp2_interfaz_cerebral:
     m 1eua "Would you get a brain chip to access the internet with thought, [player]?"
@@ -1161,7 +1161,7 @@ label pp2_interfaz_cerebral:
 
 # 48 - Fusion energy (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_energia_fusion", category=['ciencia', 'futuro'], prompt="Nuclear fusion: energy solution or eternal promise?", pool=True, unlocked=pp2_check_unlock("pp2_energia_fusion", required_affection=3500, required_progress=25)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_energia_fusion", category=['science', 'future'], prompt="Nuclear fusion: energy solution or eternal promise?", pool=True, unlocked=pp2_check_unlock("pp2_energia_fusion", required_affection=3500, required_progress=25)))
 
 label pp2_energia_fusion:
     m 1eua "Nuclear fusion: definitive energy solution... or eternal promise of 'within 30 years', [player]?"
@@ -1184,7 +1184,7 @@ label pp2_energia_fusion:
 
 # 49 - Virtual reality life (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_realidad_virtual_vida", category=['tecnología', 'filosofía'], prompt="Could you live your entire life in a perfect virtual reality?", pool=True, unlocked=pp2_check_unlock("pp2_realidad_virtual_vida", required_affection=4300, required_progress=36)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_realidad_virtual_vida", category=['technology', 'philosophy'], prompt="Could you live your entire life in a perfect virtual reality?", pool=True, unlocked=pp2_check_unlock("pp2_realidad_virtual_vida", required_affection=4300, required_progress=36)))
 
 label pp2_realidad_virtual_vida:
     m 1eua "Could you live your entire life in a perfect virtual reality, [player]?"
@@ -1207,7 +1207,7 @@ label pp2_realidad_virtual_vida:
 
 # 50 - Privacy dead (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_privacidad_muerta", category=['tecnología', 'sociedad'], prompt="\"Privacy is dead\" - do you agree?", pool=True, unlocked=pp2_check_unlock("pp2_privacidad_muerta", required_affection=3800, required_progress=28)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_privacidad_muerta", category=['technology', 'society'], prompt="\"Privacy is dead\" - do you agree?", pool=True, unlocked=pp2_check_unlock("pp2_privacidad_muerta", required_affection=3800, required_progress=28)))
 
 label pp2_privacidad_muerta:
     m 1eua "Privacy is dead - do you agree, [player]?"
@@ -1230,7 +1230,7 @@ label pp2_privacidad_muerta:
 
 # 51 - Work automation (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_automatizacion_trabajo", category=['tecnología', 'sociedad'], prompt="Would a world without necessary human labor be utopia or dystopia?", pool=True, unlocked=pp2_check_unlock("pp2_automatizacion_trabajo", required_affection=3900, required_progress=30)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_automatizacion_trabajo", category=['technology', 'society'], prompt="Would a world without necessary human labor be utopia or dystopia?", pool=True, unlocked=pp2_check_unlock("pp2_automatizacion_trabajo", required_affection=3900, required_progress=30)))
 
 label pp2_automatizacion_trabajo:
     m 1eua "A world without necessary human labor... utopia or dystopia, [player]?"
@@ -1253,7 +1253,7 @@ label pp2_automatizacion_trabajo:
 
 # 52 - Genetic editing (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_edicion_genetica", category=['ciencia', 'ética'], prompt="Would you edit your future child's genes to avoid diseases? And for intelligence?", pool=True, unlocked=pp2_check_unlock("pp2_edicion_genetica", required_affection=4000, required_progress=30)))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_edicion_genetica", category=['science', 'ethics'], prompt="Would you edit your future child's genes to avoid diseases? And for intelligence?", pool=True, unlocked=pp2_check_unlock("pp2_edicion_genetica", required_affection=4000, required_progress=30)))
 
 label pp2_edicion_genetica:
     m 1eua "Would you edit your future child's genes to avoid diseases? And for intelligence, [player]?"
@@ -1276,7 +1276,7 @@ label pp2_edicion_genetica:
 
 # 53 - Astrobiology life
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_astrobiologia_vida", category=['espacio', 'ciencia'], prompt="Do you think we will find extraterrestrial life (microbial or intelligent)?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_astrobiologia_vida", category=['space', 'science'], prompt="Do you think we will find extraterrestrial life (microbial or intelligent)?", pool=True, unlocked=True))
 
 label pp2_astrobiologia_vida:
     m 1eua "Do you think we will find extraterrestrial life... microbial or intelligent, [player]?"
@@ -1299,7 +1299,7 @@ label pp2_astrobiologia_vida:
 
 # 54 - Humanity Technology (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_tecnologia_humanidad", category=['tecnología', 'filosofía'], prompt="Does technology bring us closer or further away from what makes us human?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_tecnologia_humanidad", category=['technology', 'philosophy'], prompt="Does technology bring us closer or further away from what makes us human?", pool=True, unlocked=False))
 
 label pp2_tecnologia_humanidad:
     m 1eua "Does technology bring us closer... or further away from what makes us human, [player]?"
@@ -1326,7 +1326,7 @@ label pp2_tecnologia_humanidad:
 
 # 55 - Alexandria Library
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_biblioteca_alejandria", category=['historia', 'cultura'], prompt="The Library of Alexandria: what lost knowledge hurts you the most?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_biblioteca_alejandria", category=['history', 'culture'], prompt="The Library of Alexandria: what lost knowledge hurts you the most?", pool=True, unlocked=True))
 
 label pp2_biblioteca_alejandria:
     m 1eua "The Library of Alexandria... what lost knowledge hurts you the most, [player]?"
@@ -1349,7 +1349,7 @@ label pp2_biblioteca_alejandria:
 
 # 56 - Lost Civilization
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_civilizacion_perdida", category=['historia', 'mitología'], prompt="What ancient civilization would you like to see at its peak?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_civilizacion_perdida", category=['history', 'mythology'], prompt="What ancient civilization would you like to see at its peak?", pool=True, unlocked=True))
 
 label pp2_civilizacion_perdida:
     m 1eua "What ancient civilization would you like to see at its peak, [player]?"
@@ -1372,7 +1372,7 @@ label pp2_civilizacion_perdida:
 
 # 57 - Favorite myth
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_mito_favorito", category=['mitología', 'literatura'], prompt="What is your favorite myth or legend and why?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_mito_favorito", category=['mythology', 'literature'], prompt="What is your favorite myth or legend and why?", pool=True, unlocked=True))
 
 label pp2_mito_favorito:
     m 1eua "What is your favorite myth or legend and why, [player]?"
@@ -1395,7 +1395,7 @@ label pp2_mito_favorito:
 
 # 58 - History winners (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_historia_ganadores", category=['historia', 'filosofía'], prompt="\"History is written by the victors\" - what truths were lost?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_historia_ganadores", category=['history', 'philosophy'], prompt="\"History is written by the victors\" - what truths were lost?", pool=True, unlocked=False))
 
 label pp2_historia_ganadores:
     m 1eua "History is written by the victors - what truths were lost, [player]?"
@@ -1418,7 +1418,7 @@ label pp2_historia_ganadores:
 
 # 59 - Dead language
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_lengua_muerta", category=['cultura', 'idiomas'], prompt="If you could revive a dead language, what would it be?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_lengua_muerta", category=['culture', 'languages'], prompt="If you could revive a dead language, what would it be?", pool=True, unlocked=True))
 
 label pp2_lengua_muerta:
     m 1eua "If you could revive a dead language... what would it be, [player]?"
@@ -1441,7 +1441,7 @@ label pp2_lengua_muerta:
 
 # 60 - Rock art (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_rupestre", category=['historia', 'arte'], prompt="What were humans 40,000 years ago trying to tell us with their rock art?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_rupestre", category=['history', 'art'], prompt="What were humans 40,000 years ago trying to tell us with their rock art?", pool=True, unlocked=False))
 
 label pp2_arte_rupestre:
     m 1eua "What were humans 40,000 years ago trying to tell us with their rock art, [player]?"
@@ -1464,7 +1464,7 @@ label pp2_arte_rupestre:
 
 # 61 - Rite of passage (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_rito_paso", category=['cultura', 'psicología'], prompt="Modern rites of passage: have we lost something important?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_rito_paso", category=['culture', 'psychology'], prompt="Modern rites of passage: have we lost something important?", pool=True, unlocked=False))
 
 label pp2_rito_paso:
     m 1eua "Modern rites of passage... have we lost something important, [player]?"
@@ -1487,7 +1487,7 @@ label pp2_rito_paso:
 
 # 62 - Monument build
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_monumento_construir", category=['historia', 'arte'], prompt="If you built a monument that would last 10,000 years, what would it be?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_monumento_construir", category=['history', 'art'], prompt="If you built a monument that would last 10,000 years, what would it be?", pool=True, unlocked=True))
 
 label pp2_monumento_construir:
     m 1eua "If you built a monument that would last 10,000 years... what would it be, [player]?"
@@ -1510,7 +1510,7 @@ label pp2_monumento_construir:
 
 # 63 - Lost tradition (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_tradicion_perdida", category=['cultura', 'memorias'], prompt="What family or cultural tradition would you like to recover?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_tradicion_perdida", category=['culture', 'memories'], prompt="What family or cultural tradition would you like to recover?", pool=True, unlocked=False))
 
 label pp2_tradicion_perdida:
     m 1eua "What family or cultural tradition would you like to recover, [player]?"
@@ -1537,7 +1537,7 @@ label pp2_tradicion_perdida:
 
 # 64 - Shadow Jung (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_sombra_jung", category=['psicología', 'reflexión'], prompt="Jung's 'shadow': what part of yourself do you reject and project onto others?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_sombra_jung", category=['psychology', 'reflection'], prompt="Jung's 'shadow': what part of yourself do you reject and project onto others?", pool=True, unlocked=False))
 
 label pp2_sombra_jung:
     m 1eua "Jung's 'shadow': what part of yourself do you reject and project onto others, [player]?"
@@ -1560,7 +1560,7 @@ label pp2_sombra_jung:
 
 # 65 - Attachment style (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_apego_estilo", category=['psicología', 'relaciones'], prompt="Do you know your attachment style? How does it affect your relationships?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_apego_estilo", category=['psychology', 'relationships'], prompt="Do you know your attachment style? How does it affect your relationships?", pool=True, unlocked=False))
 
 label pp2_apego_estilo:
     m 1eua "Do you know your attachment style? How does [player] affect your relationships?"
@@ -1583,7 +1583,7 @@ label pp2_apego_estilo:
 
 # 66 - State flow
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_flujo_estado", category=['psicología', 'creatividad'], prompt="What activity makes you enter a 'flow state'?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_flujo_estado", category=['psychology', 'creativity'], prompt="What activity makes you enter a 'flow state'?", pool=True, unlocked=True))
 
 label pp2_flujo_estado:
     m 1eua "What activity gets you into a 'flow state'... where time disappears, [player]?"
@@ -1606,7 +1606,7 @@ label pp2_flujo_estado:
 
 # 67 - Learned resilience (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_resiliencia_aprendida", category=['psicología', 'autocuidado'], prompt="Do you think resilience is born or learned?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_resiliencia_aprendida", category=['psychology', 'self-care'], prompt="Do you think resilience is born or learned?", pool=True, unlocked=False))
 
 label pp2_resiliencia_aprendida:
     m 1eua "Do you think resilience is born... or learned, [player]?"
@@ -1629,7 +1629,7 @@ label pp2_resiliencia_aprendida:
 
 # 68 - Lucid dreams
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_suenos_lucidos", category=['psicología', 'sueños'], prompt="Have you had lucid dreams? What would you do if you could always control them?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_suenos_lucidos", category=['psychology', 'dreams'], prompt="Have you had lucid dreams? What would you do if you could always control them?", pool=True, unlocked=True))
 
 label pp2_suenos_lucidos:
     m 1eua "Have you had lucid dreams? What would you do if you could always control them, [player]?"
@@ -1652,7 +1652,7 @@ label pp2_suenos_lucidos:
 
 # 69 - False memory (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_memoria_falsa", category=['psicología', 'memorias'], prompt="Have you ever discovered that a vivid memory was false?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_memoria_falsa", category=['psychology', 'memories'], prompt="Have you ever discovered that a vivid memory was false?", pool=True, unlocked=False))
 
 label pp2_memoria_falsa:
     m 1eua "Have you ever discovered that a vivid memory... was false, [player]?"
@@ -1675,7 +1675,7 @@ label pp2_memoria_falsa:
 
 # 70 - Introversion/extroversion
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_introversion_extroversion", category=['psicología', 'cotidiano'], prompt="Introvert/extrovert: useful or limiting label?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_introversion_extroversion", category=['psychology', 'everyday'], prompt="Introvert/extrovert: useful or limiting label?", pool=True, unlocked=True))
 
 label pp2_introversion_extroversion:
     m 1eua "Introvert/extrovert: useful label... or limiting, [player]?"
@@ -1698,7 +1698,7 @@ label pp2_introversion_extroversion:
 
 # 71 - Stigma therapy (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_terapia_estigma", category=['psicología', 'sociedad'], prompt="Why is there still a stigma about going to therapy?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_terapia_estigma", category=['psychology', 'society'], prompt="Why is there still a stigma about going to therapy?", pool=True, unlocked=False))
 
 label pp2_terapia_estigma:
     m 1eua "Why is there still a stigma in going to therapy, [player]?"
@@ -1721,7 +1721,7 @@ label pp2_terapia_estigma:
 
 # 72 - Collective unconscious (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_inconsciente_colectivo", category=['psicología', 'mitología'], prompt="Do you believe in Jung's collective unconscious (shared archetypes)?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_inconsciente_colectivo", category=['psychology', 'mythology'], prompt="Do you believe in Jung's collective unconscious (shared archetypes)?", pool=True, unlocked=False))
 
 label pp2_inconsciente_colectivo:
     m 1eua "Do you believe in Jung's collective unconscious... archetypes shared by all humanity, [player]?"
@@ -1748,7 +1748,7 @@ label pp2_inconsciente_colectivo:
 
 # 73 - Creative block
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_bloqueo_creativo", category=['creatividad', 'autocuidado'], prompt="How do you break creative block when it appears?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_bloqueo_creativo", category=['creativity', 'self-care'], prompt="How do you break creative block when it appears?", pool=True, unlocked=True))
 
 label pp2_bloqueo_creativo:
     m 1eua "How do you break creative block when it appears, [player]?"
@@ -1771,7 +1771,7 @@ label pp2_bloqueo_creativo:
 
 # 74 - Pretty ugly art
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_fea_bonita", category=['arte', 'filosofía'], prompt="\"Ugly art is also art\" - do you agree?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_fea_bonita", category=['art', 'philosophy'], prompt="\"Ugly art is also art\" - do you agree?", pool=True, unlocked=True))
 
 label pp2_arte_fea_bonita:
     m 1eua "Ugly art is also art - do you agree, [player]?"
@@ -1794,7 +1794,7 @@ label pp2_arte_fea_bonita:
 
 # 75 - Write for no one
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_escribir_para_nadie", category=['literatura', 'creatividad'], prompt="Would you write something knowing that no one would ever read it?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_escribir_para_nadie", category=['literature', 'creativity'], prompt="Would you write something knowing that no one would ever read it?", pool=True, unlocked=True))
 
 label pp2_escribir_para_nadie:
     m 1eua "Would you write something knowing that no one would ever read it, [player]?"
@@ -1817,7 +1817,7 @@ label pp2_escribir_para_nadie:
 
 # 76 - Color emotion
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_color_emocion", category=['arte', 'emociones'], prompt="If every emotion had a color, what color would nostalgia be?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_color_emocion", category=['art', 'emotions'], prompt="If every emotion had a color, what color would nostalgia be?", pool=True, unlocked=True))
 
 label pp2_color_emocion:
     m 1eua "If every emotion had a color... what color would nostalgia be, [player]?"
@@ -1840,7 +1840,7 @@ label pp2_color_emocion:
 
 # 77 - Muse inspiration
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_musa_inspiracion", category=['creatividad', 'romance'], prompt="Who or what is your 'muse' when you need inspiration?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_musa_inspiracion", category=['creativity', 'romance'], prompt="Who or what is your 'muse' when you need inspiration?", pool=True, unlocked=True))
 
 label pp2_musa_inspiracion:
     m 1eua "Who or what is your 'muse' when you need inspiration, [player]?"
@@ -1863,7 +1863,7 @@ label pp2_musa_inspiracion:
 
 # 78 - AI Art (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_ia", category=['arte', 'tecnología'], prompt="AI-generated art: theft, tool, or new artistic medium?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_ia", category=['art', 'technology'], prompt="AI-generated art: theft, tool, or new artistic medium?", pool=True, unlocked=False))
 
 label pp2_arte_ia:
     m 1eua "AI-generated art: theft, tool, or new artistic medium, [player]?"
@@ -1886,7 +1886,7 @@ label pp2_arte_ia:
 
 # 79 - Own song
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_cancion_propia", category=['música', 'creatividad'], prompt="If you wrote a song now, what would it be about?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_cancion_propia", category=['music', 'creativity'], prompt="If you wrote a song now, what would it be about?", pool=True, unlocked=True))
 
 label pp2_cancion_propia:
     m 1eua "If you wrote a song now... what would it be about, [player]?"
@@ -1909,7 +1909,7 @@ label pp2_cancion_propia:
 
 # 80 - Character created
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_personaje_creado", category=['creatividad', 'literatura'], prompt="Have you ever created a character that 'came to life' and surprised you?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_personaje_creado", category=['creativity', 'literature'], prompt="Have you ever created a character that 'came to life' and surprised you?", pool=True, unlocked=True))
 
 label pp2_personaje_creado:
     m 1eua "Have you ever created a character that 'came to life' and surprised you, [player]?"
@@ -1932,7 +1932,7 @@ label pp2_personaje_creado:
 
 # 81 - Art heals (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_sana", category=['arte', 'autocuidado'], prompt="Does art heal those who create it, those who see it, or both equally?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_arte_sana", category=['art', 'self-care'], prompt="Does art heal those who create it, those who see it, or both equally?", pool=True, unlocked=False))
 
 label pp2_arte_sana:
     m 1eua "Does art heal the one who creates it... the one who sees it... or both equally, [player]?"
@@ -1959,7 +1959,7 @@ label pp2_arte_sana:
 
 # 82 - Favorite tree
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_arbol_favorito", category=['naturaleza', 'cotidiano'], prompt="Do you have a favorite tree? Why that one?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_arbol_favorito", category=['nature', 'everyday'], prompt="Do you have a favorite tree? Why that one?", pool=True, unlocked=True))
 
 label pp2_arbol_favorito:
     m 1eua "Do you have a favorite tree? Why that one, [player]?"
@@ -1982,7 +1982,7 @@ label pp2_arbol_favorito:
 
 # 83 - Rewilding
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_rewilding", category=['naturaleza', 'medio ambiente'], prompt="\"Rewilding\" (rewilding): returning nature to its wild state?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_rewilding", category=['nature', 'environment'], prompt="\"Rewilding\" (rewilding): returning nature to its wild state?", pool=True, unlocked=True))
 
 label pp2_rewilding:
     m 1eua "Rewilding (rewilding): returning nature to its wild state, [player]?"
@@ -2005,7 +2005,7 @@ label pp2_rewilding:
 
 # 84 - Climate change hope (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_cambio_climatico_esperanza", category=['medio ambiente', 'futuro'], prompt="Are you an optimist or a pessimist about the climate? Because?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_cambio_climatico_esperanza", category=['environment', 'future'], prompt="Are you an optimist or a pessimist about the climate? Because?", pool=True, unlocked=False))
 
 label pp2_cambio_climatico_esperanza:
     m 1eua "Are you an optimist or a pessimist about the climate? Why, [player]?"
@@ -2028,7 +2028,7 @@ label pp2_cambio_climatico_esperanza:
 
 # 85 - Biomimicry
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_biomimesis", category=['ciencia', 'naturaleza'], prompt="Biomimicry: what human invention would you copy from nature?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_biomimesis", category=['science', 'nature'], prompt="Biomimicry: what human invention would you copy from nature?", pool=True, unlocked=True))
 
 label pp2_biomimesis:
     m 1eua "Biomimicry: what human invention would you copy from nature, [player]?"
@@ -2051,7 +2051,7 @@ label pp2_biomimesis:
 
 # 86 - Ideal garden
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_jardin_ideal", category=['naturaleza', 'cotidiano'], prompt="Describe your ideal garden (real or imaginary)", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_jardin_ideal", category=['nature', 'everyday'], prompt="Describe your ideal garden (real or imaginary)", pool=True, unlocked=True))
 
 label pp2_jardin_ideal:
     m 1eua "Describe your ideal garden... real or imaginary, [player]."
@@ -2074,7 +2074,7 @@ label pp2_jardin_ideal:
 
 # 87 - Nature sound
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_sonido_naturaleza", category=['naturaleza', 'autocuidado'], prompt="What natural sound relaxes you the most: rain, waves, wind, birds...?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_sonido_naturaleza", category=['nature', 'self-care'], prompt="What natural sound relaxes you the most: rain, waves, wind, birds...?", pool=True, unlocked=True))
 
 label pp2_sonido_naturaleza:
     m 1eua "What natural sound relaxes you the most: rain, waves, wind, birds..., [player]?"
@@ -2097,7 +2097,7 @@ label pp2_sonido_naturaleza:
 
 # 88 - De-extinction (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_extincion_deextincion", category=['ciencia', 'ética'], prompt="De-extinction: should we bring back the mammoth or the dodo?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_extincion_deextincion", category=['science', 'ethics'], prompt="De-extinction: should we bring back the mammoth or the dodo?", pool=True, unlocked=False))
 
 label pp2_extincion_deextincion:
     m 1eua "De-extinction: should we bring back the mammoth, the dodo, the Tasmanian tiger, [player]?"
@@ -2120,7 +2120,7 @@ label pp2_extincion_deextincion:
 
 # 89 - Green City (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_ciudad_verde", category=['medio ambiente', 'futuro'], prompt="Green cities: necessary or impossible utopia?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_ciudad_verde", category=['environment', 'future'], prompt="Green cities: necessary or impossible utopia?", pool=True, unlocked=False))
 
 label pp2_ciudad_verde:
     m 1eua "Green cities: necessary or impossible utopia, [player]?"
@@ -2143,7 +2143,7 @@ label pp2_ciudad_verde:
 
 # 90 - Ground Connection (locked)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_conexion_tierra", category=['naturaleza', 'espiritualidad'], prompt="Do you feel 'connection with the Earth' (Gaia) or is it just a poetic metaphor?", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_conexion_tierra", category=['nature', 'spirituality'], prompt="Do you feel 'connection with the Earth' (Gaia) or is it just a poetic metaphor?", pool=True, unlocked=False))
 
 label pp2_conexion_tierra:
     m 1eua "Do you feel 'connected to the Earth' (Gaia)... or is it just poetic metaphor, [player]?"
@@ -2170,7 +2170,7 @@ label pp2_conexion_tierra:
 
 # 91 - Guess the number
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_adivina_numero", category=['minijuego', 'juegos'], prompt="Minijuego: Adivina el número (1-100) — clásico con pistas", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_adivina_numero", category=['minigame', 'games'], prompt="Minijuego: Adivina el número (1-100) — clásico con pistas", pool=True, unlocked=True))
 
 label pp2_adivina_numero:
     m 1eua "Let's play guess the number, [player]!"
@@ -2220,7 +2220,7 @@ label pp2_adivina_numero:
 
 # 92 - Rock, paper, scissors
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_piedra_papel_tijera", category=['minijuego', 'juegos'], prompt="Minijuego: Piedra, papel, tijera — mejor de 3", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_piedra_papel_tijera", category=['minigame', 'games'], prompt="Minijuego: Piedra, papel, tijera — mejor de 3", pool=True, unlocked=True))
 
 label pp2_piedra_papel_tijera:
     m 1eua "Rock, paper, scissors! Best of 3, [player]."
@@ -2296,7 +2296,7 @@ label pp2_piedra_papel_tijera:
 
 # 93 - Logical Riddle
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_acertijo_logico", category=['minijuego', 'juegos'], prompt="Minijuego: Te doy un acertijo lógico, tú lo resuelves", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_acertijo_logico", category=['minigame', 'games'], prompt="Minijuego: Te doy un acertijo lógico, tú lo resuelves", pool=True, unlocked=True))
 
 label pp2_acertijo_logico:
     m 1eua "Logic puzzle, [player]! Think well..."
@@ -2344,7 +2344,7 @@ label pp2_acertijo_logico:
 
 # 94 - Random Trivia
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_trivia_aleatoria", category=['minijuego', 'juegos'], prompt="Minigame: Random Trivia - 3 questions, how many do you get right?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_trivia_aleatoria", category=['minigame', 'games'], prompt="Minigame: Random Trivia - 3 questions, how many do you get right?", pool=True, unlocked=True))
 
 label pp2_trivia_aleatoria:
     m 1eua "Random trivia! 3 questions, [player]. How many do you get right?"
@@ -2412,7 +2412,7 @@ label pp2_trivia_aleatoria:
 
 # 95 - Test: Your inner element
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_elemento", category=['test', 'personalidad'], prompt="Test: What is your inner element? - Fire, Water, Earth or Air", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_elemento", category=['test', 'personality'], prompt="Test: What is your inner element? - Fire, Water, Earth or Air", pool=True, unlocked=True))
 
 label pp2_test_elemento:
     $ scores = {"Fire": 0, "Water": 0, "Earth": 0, "Air": 0}
@@ -2483,7 +2483,7 @@ label pp2_test_elemento:
 
 # 96 - Test: Jungian Archetype (unlockable >1500 affection)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personalidad', 'psicologia'], prompt="Test: Discover your Jungian archetype — Hero, Sage, Carer, Explorer...", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personality', 'psychology'], prompt="Test: Discover your Jungian archetype — Hero, Sage, Carer, Explorer...", pool=True, unlocked=False))
 
 label pp2_test_arquetipo:
     $ scores = {"Hero": 0, "Sage": 0, "Carer": 0, "Explorer": 0, "Creator": 0, "Ruler": 0}
@@ -2576,7 +2576,7 @@ label pp2_test_arquetipo:
 
 # 97 - Test: Language of love (unlocked from the beginning)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_lenguaje_amor", category=['test', 'personalidad', 'relaciones'], prompt="Test: What is your love language? - Words, Time, Gifts, Acts, Contact", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_lenguaje_amor", category=['test', 'personality', 'relationships'], prompt="Test: What is your love language? - Words, Time, Gifts, Acts, Contact", pool=True, unlocked=True))
 
 label pp2_test_lenguaje_amor:
     $ scores = {"Words": 0, "Time": 0, "Gifts": 0, "Acts": 0, "Contact": 0}
@@ -2658,7 +2658,7 @@ label pp2_test_lenguaje_amor:
 
 # 98 - Test: Learning Style (unlockable >3000 affection)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estilo_aprendizaje", category=['test', 'personalidad', 'educacion'], prompt="Test: How do you learn best? - Visual, Auditory, Kinesthetic, Reading/Writing", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estilo_aprendizaje", category=['test', 'personality', 'education'], prompt="Test: How do you learn best? - Visual, Auditory, Kinesthetic, Reading/Writing", pool=True, unlocked=False))
 
 label pp2_test_estilo_aprendizaje:
     $ scores = {"Visual": 0, "Auditory": 0, "Kinesthetic": 0, "Reading": 0}
@@ -2729,7 +2729,7 @@ label pp2_test_estilo_aprendizaje:
 
 # 99 - Test: Soul Station (unlockable >5000 affection)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estacion_alma", category=['test', 'personalidad', 'filosofia'], prompt="Test: What season does your soul inhabit? - Spring, Summer, Autumn, Winter", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estacion_alma", category=['test', 'personality', 'philosophy'], prompt="Test: What season does your soul inhabit? - Spring, Summer, Autumn, Winter", pool=True, unlocked=False))
 
 label pp2_test_estacion_alma:
     $ scores = {"Spring": 0, "Summer": 0, "Autumn": 0, "Winter": 0}
@@ -2800,7 +2800,7 @@ label pp2_test_estacion_alma:
 
 # 100 - Test: Color of your aura (unlockable >5000 affection)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_color_aura", category=['test', 'personalidad', 'espiritualidad'], prompt="Test: What color is your aura? - Red, Orange, Yellow, Green, Blue, Indigo, Violet", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_color_aura", category=['test', 'personality', 'spirituality'], prompt="Test: What color is your aura? - Red, Orange, Yellow, Green, Blue, Indigo, Violet", pool=True, unlocked=False))
 
 label pp2_test_color_aura:
     $ scores = {"Red": 0, "Orange": 0, "Yellow": 0, "Green": 0, "Blue": 0, "Indigo": 0, "Violet": 0}
@@ -2928,6 +2928,13 @@ init 5 python:
     }
 
     for eventlabel, requirements in pp2_locked_event_requirements.items():
-        event = persistent.event_database.get(eventlabel)
-        if event is not None:
-            event.unlocked = pp2_check_unlock(eventlabel, requirements[0], requirements[1])
+        event_data = persistent.event_database.get(eventlabel)
+        if event_data is not None:
+            event = event_data
+            if isinstance(event_data, tuple):
+                for event_item in event_data:
+                    if hasattr(event_item, "unlocked"):
+                        event = event_item
+                        break
+            if hasattr(event, "unlocked"):
+                event.unlocked = pp2_check_unlock(eventlabel, requirements[0], requirements[1])
