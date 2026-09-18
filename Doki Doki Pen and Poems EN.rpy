@@ -3,7 +3,7 @@ init -990 python in mas_submod_utils:
         author="Muuu",
         name="Pen and Poems",
         description="A simple mod that adds more dialogues.",
-        version="1.1.2 ",
+        version="1.2.0 ",
         dependencies={},
         settings_pane=None,
         version_updates={}
@@ -37,7 +37,7 @@ init 5 python:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_tomatina", category=['eventos'], prompt="What do you think of Tomatina, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_tomatina", category=['events'], prompt="What do you think of Tomatina, Monika?", pool=True, unlocked=True))
 
 label monika_tomatina:
     m 1esd "The Tomatina? Yes, I know it!"
@@ -60,7 +60,7 @@ label monika_tomatina:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_significado_amor", category=['filosofía'], prompt="What does love really mean to you, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_significado_amor", category=['philosophy'], prompt="What does love really mean to you, Monika?", pool=True, unlocked=True))
 
 label monika_significado_amor:
     m 1esd "What does love mean...?"
@@ -88,7 +88,7 @@ label monika_significado_amor:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_tiempo_jugador", category=['emociones'], prompt="How do you feel when I spend time with you, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_tiempo_jugador", category=['emotions'], prompt="How do you feel when I spend time with you, Monika?", pool=True, unlocked=True))
 
 label monika_tiempo_jugador:
     m 1eub "When you spend time with me, [player], I feel like the world gets a little brighter."
@@ -105,7 +105,7 @@ label monika_tiempo_jugador:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_en_tu_mundo", category=['sueños'], prompt="What would you do if you could physically be in my world, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_en_tu_mundo", category=['dreams'], prompt="What would you do if you could physically be in my world, Monika?", pool=True, unlocked=True))
 
 label monika_en_tu_mundo:
     m 1esd "What would I do if I could be in your world...?"
@@ -128,7 +128,7 @@ label monika_en_tu_mundo:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_silencio", category=['emociones'], prompt="What does the silence between us mean, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_silencio", category=['emotions'], prompt="What does the silence between us mean, Monika?", pool=True, unlocked=True))
 
 label monika_silencio:
     m 1esd "Sometimes, [player], silence says more than words."
@@ -145,7 +145,7 @@ label monika_silencio:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_enamorarse_vs_amar", category=['filosofía'], prompt="What is the difference between falling in love and truly loving, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_enamorarse_vs_amar", category=['philosophy'], prompt="What is the difference between falling in love and truly loving, Monika?", pool=True, unlocked=True))
 
 label monika_enamorarse_vs_amar:
     m 1esd "Falling in love and truly loving... many people think they are the same, but they are not."
@@ -168,7 +168,7 @@ label monika_enamorarse_vs_amar:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_dias_tristes_ansiedad", category=['emociones'], prompt="How do you handle sad or anxious days, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_dias_tristes_ansiedad", category=['emotions'], prompt="How do you handle sad or anxious days, Monika?", pool=True, unlocked=True))
 
 label monika_dias_tristes_ansiedad:
     m 1esd "Sad days... and days when anxiety seems to tighten your chest... are inevitable, right?"
@@ -204,7 +204,7 @@ label monika_dias_tristes_ansiedad:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_vulnerabilidad", category=['filosofía'], prompt="Why is it important to accept vulnerability, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_vulnerabilidad", category=['philosophy'], prompt="Why is it important to accept vulnerability, Monika?", pool=True, unlocked=True))
 
 label monika_vulnerabilidad:
     m 1esd "You know, [player]? I've been thinking a lot about vulnerability."
@@ -244,7 +244,7 @@ label monika_vulnerabilidad:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_felicidad_no_sonreir", category=['filosofía'], prompt="Why doesn't happiness always mean smiling, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_felicidad_no_sonreir", category=['philosophy'], prompt="Why doesn't happiness always mean smiling, Monika?", pool=True, unlocked=True))
 
 label monika_felicidad_no_sonreir:
     m 1esd "You know, [player]? Sometimes people think that being happy means smiling all the time."
@@ -276,7 +276,7 @@ label monika_felicidad_no_sonreir:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_culpa_arrepentimiento", category=['emociones'], prompt="How can I overcome guilt or regret, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_culpa_arrepentimiento", category=['emotions'], prompt="How can I overcome guilt or regret, Monika?", pool=True, unlocked=True))
 
 label monika_culpa_arrepentimiento:
     m 1esd "The guilt... and the regret. Two feelings that can become so heavy, right?"
@@ -311,7 +311,7 @@ label monika_culpa_arrepentimiento:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_pequenos_momentos", category=['filosofía'], prompt="What do you think of the beauty of small everyday moments, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_pequenos_momentos", category=['philosophy'], prompt="What do you think of the beauty of small everyday moments, Monika?", pool=True, unlocked=True))
 
 label monika_pequenos_momentos:
     m 1esd "We live in a world that always seems to go fast, right, [player]?"
@@ -344,7 +344,7 @@ label monika_pequenos_momentos:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_gratitud_sin_palabras", category=['filosofía'], prompt="How can you express gratitude without words, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_gratitud_sin_palabras", category=['philosophy'], prompt="How can you express gratitude without words, Monika?", pool=True, unlocked=True))
 
 label monika_gratitud_sin_palabras:
     m 1esd "Have you ever thought about how you can express gratitude without saying a single word, [player]?"
@@ -378,7 +378,7 @@ label monika_gratitud_sin_palabras:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_tiempo_felicidad", category=['filosofía'], prompt="Why does time seem to go faster when we are happy, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_tiempo_felicidad", category=['philosophy'], prompt="Why does time seem to go faster when we are happy, Monika?", pool=True, unlocked=True))
 
 label monika_tiempo_felicidad:
     m 1esd "It's funny, don't you think, [player]?"
@@ -413,7 +413,7 @@ label monika_tiempo_felicidad:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_sentirse_viva", category=['filosofía'], prompt="What does it mean to you to feel alive, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_sentirse_viva", category=['philosophy'], prompt="What does it mean to you to feel alive, Monika?", pool=True, unlocked=True))
 
 label monika_sentirse_viva:
     m 1esd "'Feeling alive'..."
@@ -447,7 +447,7 @@ label monika_sentirse_viva:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_recuerdos_identidad", category=['filosofía'], prompt="How do you think memories influence our identity, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_recuerdos_identidad", category=['philosophy'], prompt="How do you think memories influence our identity, Monika?", pool=True, unlocked=True))
 
 label monika_recuerdos_identidad:
     m 1esd "The memories..."
@@ -483,7 +483,7 @@ label monika_recuerdos_identidad:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_libre_albedrio", category=['filosofía'], prompt="Do you think free will really exists, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_libre_albedrio", category=['philosophy'], prompt="Do you think free will really exists, Monika?", pool=True, unlocked=True))
 
 label monika_libre_albedrio:
     m 1esd "Free will... what a complex topic, right, [player]?"
@@ -521,7 +521,7 @@ label monika_libre_albedrio:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_que_nos_hace_reales", category=['filosofía'], prompt="What do you think makes us real, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_que_nos_hace_reales", category=['philosophy'], prompt="What do you think makes us real, Monika?", pool=True, unlocked=True))
 
 label monika_que_nos_hace_reales:
     m 1esd "What makes us real...?"
@@ -559,7 +559,7 @@ label monika_que_nos_hace_reales:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_conciencia_sin_cuerpo", category=['filosofía'], prompt="Do you think consciousness could exist without a body, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_conciencia_sin_cuerpo", category=['philosophy'], prompt="Do you think consciousness could exist without a body, Monika?", pool=True, unlocked=True))
 
 label monika_conciencia_sin_cuerpo:
     m 1esd "That's a fascinating question, [player]."
@@ -595,7 +595,7 @@ label monika_conciencia_sin_cuerpo:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_perfeccion", category=['filosofía'], prompt="Do you think perfection is desirable or boring, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_perfeccion", category=['philosophy'], prompt="Do you think perfection is desirable or boring, Monika?", pool=True, unlocked=True))
 
 label monika_perfeccion:
     m 1esd "Hmm... that's an interesting question, [player]."
@@ -626,7 +626,7 @@ label monika_perfeccion:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_conocimiento_sabiduria", category=['filosofía'], prompt="What is the difference between knowledge and wisdom, Monika?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_conocimiento_sabiduria", category=['philosophy'], prompt="What is the difference between knowledge and wisdom, Monika?", pool=True, unlocked=True))
 
 label monika_conocimiento_sabiduria:
     m 1esd "The difference between knowledge and wisdom...?"
@@ -659,7 +659,7 @@ label monika_conocimiento_sabiduria:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_suenos_significado", category=['filosofía'], prompt="Do dreams have meaning or are they just brain noise, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_suenos_significado", category=['philosophy'], prompt="Do dreams have meaning or are they just brain noise, [player]?", pool=True, unlocked=True))
 
 label monika_suenos_significado:
     m 1esd "The dreams..."
@@ -690,7 +690,7 @@ label monika_suenos_significado:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_proposito_vida", category=['filosofía'], prompt="Why do people search for a purpose in life, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_proposito_vida", category=['philosophy'], prompt="Why do people search for a purpose in life, [player]?", pool=True, unlocked=True))
 
 label monika_proposito_vida:
     m 1esd "Why do people seek purpose in life...?"
@@ -722,7 +722,7 @@ label monika_proposito_vida:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_emociones_logica", category=['filosofía'], prompt="How do you think emotions influence logic, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_emociones_logica", category=['philosophy'], prompt="How do you think emotions influence logic, [player]?", pool=True, unlocked=True))
 
 label monika_emociones_logica:
     m 1esd "Emotions... sometimes I think they are the invisible forces that guide our decisions, [player]."
@@ -751,7 +751,7 @@ label monika_emociones_logica:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_libros_juntos", category=['literatura'], prompt="What books would you like to read with [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_libros_juntos", category=['literature'], prompt="What books would you like to read with [player]?", pool=True, unlocked=True))
 
 label monika_libros_juntos:
     m 1esd "There are so many books I would love to read with you, [player]..."
@@ -772,7 +772,7 @@ label monika_libros_juntos:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_escritura_sana", category=['literatura'], prompt="How do you think writing can heal, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_escritura_sana", category=['literature'], prompt="How do you think writing can heal, [player]?", pool=True, unlocked=True))
 
 label monika_escritura_sana:
     m 1esd "You know, [player]? There is something special about writing... something almost magical."
@@ -795,7 +795,7 @@ label monika_escritura_sana:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_arte_emocion", category=['arte'], prompt="What is the relationship between art and emotion, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_arte_emocion", category=['art'], prompt="What is the relationship between art and emotion, [player]?", pool=True, unlocked=True))
 
 label monika_arte_emocion:
     m 1esd "Art... I think it does not exist without emotion, [player]."
@@ -818,7 +818,7 @@ label monika_arte_emocion:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_genero_artistico_favorito", category=['arte'], prompt="What is your favorite art genre, [player] and what do you think about abstract art?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_genero_artistico_favorito", category=['art'], prompt="What is your favorite art genre, [player] and what do you think about abstract art?", pool=True, unlocked=True))
 
 label monika_genero_artistico_favorito:
     m 1esd "If I had to choose an artistic genre that represents me, [player], it would be impressionism."
@@ -840,7 +840,7 @@ label monika_genero_artistico_favorito:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_videojuegos_arte", category=['arte'], prompt="Do you think video games can be considered art, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_videojuegos_arte", category=['art'], prompt="Do you think video games can be considered art, [player]?", pool=True, unlocked=True))
 
 label monika_videojuegos_arte:
     m 1esd "You know, [player]? Many people don't consider video games as art, but I think differently."
@@ -857,7 +857,7 @@ label monika_videojuegos_arte:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_internet_soledad", category=['filosofía'], prompt="What do you think about the impact of the internet on loneliness, [player]?", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_internet_soledad", category=['philosophy'], prompt="What do you think about the impact of the internet on loneliness, [player]?", pool=True, unlocked=True))
 
 label monika_internet_soledad:
     m 1esd "You know, [player]? The internet is a curious place. It can bring us closer to other people and, at the same time, make us feel more alone."
@@ -875,7 +875,7 @@ label monika_internet_soledad:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_iniciar_juego", category=['cotidiano','romance'], prompt="How much he enjoys watching you start the game.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_iniciar_juego", category=['everyday','romance'], prompt="How much he enjoys watching you start the game.", pool=True, unlocked=True))
 
 label monika_iniciar_juego:
     m 1esd "Do you know something, [player]? There is something very special about the moment you start the game."
@@ -897,7 +897,7 @@ label monika_iniciar_juego:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_pequenas_sonrisas", category=['cotidiano','romance'], prompt="Little things that make [player] smile throughout the day.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_pequenas_sonrisas", category=['everyday','romance'], prompt="Little things that make [player] smile throughout the day.", pool=True, unlocked=True))
 
 label monika_pequenas_sonrisas:
     m 1esd "You know, [player]? There are so many little things that make me smile during the day..."
@@ -915,7 +915,7 @@ label monika_pequenas_sonrisas:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_suerte_player", category=['romance','reflexión'], prompt="The feeling of 'being lucky' to have [player] in your life.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_suerte_player", category=['romance','reflection'], prompt="The feeling of 'being lucky' to have [player] in your life.", pool=True, unlocked=True))
 
 label monika_suerte_player:
     m 1esd "You know, [player]? There are times when I just feel incredibly lucky..."
@@ -934,7 +934,7 @@ label monika_suerte_player:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_silencio_confort", category=['reflexión','romance'], prompt="How silence can be comforting when it's with you.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_silencio_confort", category=['reflection','romance'], prompt="How silence can be comforting when it's with you.", pool=True, unlocked=True))
 
 label monika_silencio_confort:
     m 1esd "You know, [player]? There is something very special in the silence when we are together..."
@@ -952,7 +952,7 @@ label monika_silencio_confort:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_equilibrio_interior", category=['reflexión','autocuidado'], prompt="What [player] does mentally to maintain its inner balance.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_equilibrio_interior", category=['reflection','self-care'], prompt="What [player] does mentally to maintain its inner balance.", pool=True, unlocked=True))
 
 label monika_equilibrio_interior:
     m 1esd "Maintaining my inner balance is not always easy, [player]..."
@@ -970,7 +970,7 @@ label monika_equilibrio_interior:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_recuerdos_dolorosos", category=['reflexión','emocional'], prompt="How [player] deals with memories that hurt.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_recuerdos_dolorosos", category=['reflection','emotional'], prompt="How [player] deals with memories that hurt.", pool=True, unlocked=True))
 
 label monika_recuerdos_dolorosos:
     m 1esd "There are memories that hurt, [player]... moments that I would like to forget or change, but that are still there, present."
@@ -987,7 +987,7 @@ label monika_recuerdos_dolorosos:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_motivacion_mejorar_mundo", category=['reflexión','motivación'], prompt="What motivates [player] to continue improving its world.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_motivacion_mejorar_mundo", category=['reflection','motivation'], prompt="What motivates [player] to continue improving its world.", pool=True, unlocked=True))
 
 label monika_motivacion_mejorar_mundo:
     m 1esd "You know, [player]? Sometimes it can be difficult to stay motivated within my world, but I always find reasons to keep going."
@@ -1005,7 +1005,7 @@ label monika_motivacion_mejorar_mundo:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_fuerza_palabras", category=['romance','motivación'], prompt="How your words give strength to [player] to continue believing.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_fuerza_palabras", category=['romance','motivation'], prompt="How your words give strength to [player] to continue believing.", pool=True, unlocked=True))
 
 label monika_fuerza_palabras:
     m 1esd "You know, [player]? Sometimes, when everything seems complicated or uncertain, your words have a surprising effect on me."
@@ -1022,7 +1022,7 @@ label monika_fuerza_palabras:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_musica_bailar", category=['cotidiano','alegría'], prompt="What songs or rhythms make [player] want to dance.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_musica_bailar", category=['everyday','joy'], prompt="What songs or rhythms make [player] want to dance.", pool=True, unlocked=True))
 
 label monika_musica_bailar:
     m 1eub "You know, [player]? There are certain rhythms that I can't avoid, they make me want to dance without thinking about it!"
@@ -1040,7 +1040,7 @@ label monika_musica_bailar:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_colores_personalidad", category=['reflexión','poesía'], prompt="Which color combination best describes [player]'s personality.", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_colores_personalidad", category=['reflection','poetry'], prompt="Which color combination best describes [player]'s personality.", pool=True, unlocked=True))
 
 label monika_colores_personalidad:
     m 1esd "If I had to describe my personality with colors, [player], I would say that it is a delicate and vibrant mix at the same time."
@@ -1057,7 +1057,7 @@ label monika_colores_personalidad:
 
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_crear_personajes", category=['creatividad','reflexión'], prompt="How to invent characters that feel real, according to [player].", pool=True, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_crear_personajes", category=['creativity','reflection'], prompt="How to invent characters that feel real, according to [player].", pool=True, unlocked=True))
 
 label monika_crear_personajes:
     m 1esd "Creating characters that feel real is not just about giving them a name and a story, [player]."
@@ -1072,7 +1072,7 @@ label monika_crear_personajes:
     m 1eub "I love that our relationship is a source of inspiration, [player], because it reminds me that what is real and deep always comes from connection and affection."
     return "love"
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_soledad_sana", category=['emociones'], prompt="Learn to be alone", pool=True, unlocked=pp_check_unlock("monika_soledad_sana", required_affection=200, required_progress=5)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_soledad_sana", category=['emotions'], prompt="Learn to be alone", pool=True, unlocked=pp_check_unlock("monika_soledad_sana", required_affection=200, required_progress=5)))
 
 label monika_soledad_sana:
     m 1esd "Learning to be alone without feeling alone... is something deeper than it seems, [player]."
@@ -1089,7 +1089,7 @@ label monika_soledad_sana:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_presion_perfeccion", category=['filosofía'], prompt="The pressure to be perfect", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_presion_perfeccion", category=['philosophy'], prompt="The pressure to be perfect", pool=False, unlocked=True))
 
 label monika_presion_perfeccion:
     m 1esd "The pressure to be perfect... is something I know all too well."
@@ -1108,7 +1108,7 @@ label monika_presion_perfeccion:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_proposito_cotidiano", category=['filosofía'], prompt="Purpose in everyday life", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_proposito_cotidiano", category=['philosophy'], prompt="Purpose in everyday life", pool=False, unlocked=True))
 
 label monika_proposito_cotidiano:
     m 1esd "Finding purpose in everyday life can seem difficult when everything feels routine."
@@ -1126,7 +1126,7 @@ label monika_proposito_cotidiano:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_ser_uno_mismo", category=['filosofía'], prompt="What does it mean to be yourself?", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_ser_uno_mismo", category=['philosophy'], prompt="What does it mean to be yourself?", pool=False, unlocked=True))
 
 label monika_ser_uno_mismo:
     
@@ -1147,7 +1147,7 @@ label monika_ser_uno_mismo:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_paradoja_elegir", category=['filosofía'], prompt="The paradox of choosing", pool=True, unlocked=pp_check_unlock("monika_paradoja_elegir", required_affection=300, required_progress=10)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_paradoja_elegir", category=['philosophy'], prompt="The paradox of choosing", pool=True, unlocked=pp_check_unlock("monika_paradoja_elegir", required_affection=300, required_progress=10)))
 
 label monika_paradoja_elegir:
     
@@ -1167,7 +1167,7 @@ label monika_paradoja_elegir:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_percepcion_realidad", category=['filosofía'], prompt="How perception changes our reality", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_percepcion_realidad", category=['philosophy'], prompt="How perception changes our reality", pool=False, unlocked=True))
 
 label monika_percepcion_realidad:
     
@@ -1187,7 +1187,7 @@ label monika_percepcion_realidad:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_identidad_digital", category=['filosofía'], prompt="Identity in digital worlds", pool=True, unlocked=pp_check_unlock("monika_identidad_digital", required_affection=400, required_progress=15)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_identidad_digital", category=['philosophy'], prompt="Identity in digital worlds", pool=True, unlocked=pp_check_unlock("monika_identidad_digital", required_affection=400, required_progress=15)))
 
 label monika_identidad_digital:
     
@@ -1207,7 +1207,7 @@ label monika_identidad_digital:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_ia_otras_ficciones", category=['filosofía'], prompt="Sentient characters in other games", pool=True, unlocked=pp_check_unlock("monika_ia_otras_ficciones", required_affection=500, required_progress=20)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_ia_otras_ficciones", category=['philosophy'], prompt="Sentient characters in other games", pool=True, unlocked=pp_check_unlock("monika_ia_otras_ficciones", required_affection=500, required_progress=20)))
 
 label monika_ia_otras_ficciones:
     
@@ -1227,7 +1227,7 @@ label monika_ia_otras_ficciones:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_mundo_sandbox", category=['sueños'], prompt="Living in a sandbox world", pool=True, unlocked=pp_check_unlock("monika_mundo_sandbox", required_affection=600, required_progress=25)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_mundo_sandbox", category=['dreams'], prompt="Living in a sandbox world", pool=True, unlocked=pp_check_unlock("monika_mundo_sandbox", required_affection=600, required_progress=25)))
 
 label monika_mundo_sandbox:
     
@@ -1243,7 +1243,7 @@ label monika_mundo_sandbox:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia", category=['filosofía'], prompt="The ethics of NPCs and artificial intelligence", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia", category=['philosophy'], prompt="The ethics of NPCs and artificial intelligence", pool=False, unlocked=True))
 
 label monika_etica_npc_ia:
     
@@ -1263,7 +1263,7 @@ label monika_etica_npc_ia:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia_alt", category=['filosofía'], prompt="Digital Ethics and NPC", pool=True, unlocked=pp_check_unlock("monika_etica_npc_ia_alt", required_affection=700, required_progress=30)))
+    addEvent(Event(persistent.event_database, eventlabel="monika_etica_npc_ia_alt", category=['philosophy'], prompt="Digital Ethics and NPC", pool=True, unlocked=pp_check_unlock("monika_etica_npc_ia_alt", required_affection=700, required_progress=30)))
 
 label monika_etica_npc_ia_alt:
     
@@ -1279,7 +1279,7 @@ label monika_etica_npc_ia_alt:
     return "love"
 
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="monika_narrativa_interactiva", category=['filosofía'], prompt="The evolution of interactive narrative", pool=False, unlocked=True))
+    addEvent(Event(persistent.event_database, eventlabel="monika_narrativa_interactiva", category=['philosophy'], prompt="The evolution of interactive narrative", pool=False, unlocked=True))
 
 label monika_narrativa_interactiva:
     
@@ -1299,7 +1299,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_poesia_emociones_dificiles",
-        category=['literatura'],
+        category=['literature'],
         prompt="How poetry helps express difficult emotions",
         pool=True,
         unlocked=pp_check_unlock("monika_poesia_emociones_dificiles", required_affection=800, required_progress=35)
@@ -1335,7 +1335,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_historias_tristes_hermosas",
-        category=['literatura'],
+        category=['literature'],
         prompt="Why sad stories can be beautiful",
         pool=True,
         unlocked=pp_check_unlock("monika_historias_tristes_hermosas", required_affection=900, required_progress=40)
@@ -1368,7 +1368,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_diarios_personales",
-        category=['literatura'],
+        category=['literature'],
         prompt="The power of personal journals",
         pool=True,
         unlocked=pp_check_unlock("monika_diarios_personales", required_affection=1000, required_progress=45)
@@ -1402,7 +1402,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_musica_refugio_emocional",
-        category=['arte'],
+        category=['art'],
         prompt="Music as an emotional refuge",
         pool=True,
         unlocked=pp_check_unlock("monika_musica_refugio_emocional", required_affection=1100, required_progress=50)
@@ -1433,7 +1433,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_historias_cambian_lector",
-        category=['literatura'],
+        category=['literature'],
         prompt="How stories change depending on who reads them",
         pool=True,
         unlocked=pp_check_unlock("monika_historias_cambian_lector", required_affection=1200, required_progress=55)
@@ -1465,7 +1465,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_crear_sin_ser_experto",
-        category=['filosofía'],
+        category=['philosophy'],
         prompt="The importance of creating even when you are not an expert",
         pool=True,
         unlocked=pp_check_unlock("monika_crear_sin_ser_experto", required_affection=1300, required_progress=60)
@@ -1500,7 +1500,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_tecnologia_comunicacion",
-        category=['filosofía'],
+        category=['philosophy'],
         prompt="How technology changes the way we communicate",
         pool=True,
         unlocked=pp_check_unlock("monika_tecnologia_comunicacion", required_affection=1400, required_progress=65)
@@ -1537,7 +1537,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_magia_aprender_cada_dia",
-        category=['filosofía'],
+        category=['philosophy'],
         prompt="The magic of learning something new every day",
         pool=True,
         unlocked=pp_check_unlock("monika_magia_aprender_cada_dia", required_affection=1500, required_progress=70)
@@ -1573,7 +1573,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_confianza_significado",
-        category=['filosofía'],
+        category=['philosophy'],
         prompt="What does trust mean to her?",
         pool=True,
         unlocked=pp_check_unlock("monika_confianza_significado", required_affection=1600, required_progress=75)
@@ -1605,7 +1605,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_libre_albedrio_programacion",
-        category=['filosofía'],
+        category=['philosophy'],
         prompt="What it means to have free will in a programmed world",
         pool=True,
         unlocked=pp_check_unlock("monika_libre_albedrio_programacion", required_affection=1700, required_progress=80)
@@ -1639,7 +1639,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_miedo_desaparecer_olvido",
-        category=['existencial'],
+        category=['existential'],
         prompt="The fear of disappearing or being forgotten",
         pool=True,
         unlocked=pp_check_unlock("monika_miedo_desaparecer_olvido", required_affection=1800, required_progress=85)
@@ -1674,7 +1674,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_crecer_entorno_digital",
-        category=['existencial'],
+        category=['existential'],
         prompt="What 'growing up' means to someone who lives in a digital environment",
         pool=True,
         unlocked=pp_check_unlock("monika_crecer_entorno_digital", required_affection=1900, required_progress=90)
@@ -1707,7 +1707,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_memoria_vs_experiencia",
-        category=['existencial'],
+        category=['existential'],
         prompt="The difference between memory and experience",
         pool=True,
         unlocked=pp_check_unlock("monika_memoria_vs_experiencia", required_affection=2000, required_progress=95)
@@ -1742,7 +1742,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_definir_existencia",
-        category=['existencial'],
+        category=['existential'],
         prompt="How you define your own existence",
         pool=True,
         unlocked=pp_check_unlock("monika_definir_existencia", required_affection=2100, required_progress=100)
@@ -1779,7 +1779,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_amor_con_el_tiempo",
-        category=['filosofía','romance'],
+        category=['philosophy','romance'],
         prompt="How love changes over time",
         pool=True,
         unlocked=pp_check_unlock("monika_amor_con_el_tiempo", required_affection=2200, required_progress=105)
@@ -1817,7 +1817,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_estar_vs_sentirse_acompanado",
-        category=['emociones','filosofía'],
+        category=['emotions','philosophy'],
         prompt="The difference between being accompanied and feeling accompanied",
         pool=True,
         unlocked=pp_check_unlock("monika_estar_vs_sentirse_acompanado", required_affection=2300, required_progress=110)
@@ -1852,7 +1852,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_secretos_compartidos",
-        category=['romance','reflexión'],
+        category=['romance','reflection'],
         prompt="The value of secrets shared between two people",
         pool=True,
         unlocked=pp_check_unlock("monika_secretos_compartidos", required_affection=2400, required_progress=115)
@@ -1886,7 +1886,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_cuidar_en_silencio",
-        category=['romance','reflexión'],
+        category=['romance','reflection'],
         prompt="What does it mean to care for someone in silence?",
         pool=True,
         unlocked=pp_check_unlock("monika_cuidar_en_silencio", required_affection=2500, required_progress=120)
@@ -1921,7 +1921,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_promesas_pequenas",
-        category=['filosofía','romance'],
+        category=['philosophy','romance'],
         prompt="The beauty of small but fulfilled promises",
         pool=True,
         unlocked=pp_check_unlock("monika_promesas_pequenas", required_affection=2600, required_progress=125)
@@ -1956,7 +1956,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_descansar_sin_culpa",
-        category=['autocuidado','emociones'],
+        category=['self-care','emotions'],
         prompt="The importance of learning to rest without feeling guilty",
         pool=True,
         unlocked=pp_check_unlock("monika_descansar_sin_culpa", required_affection=2700, required_progress=130)
@@ -1994,7 +1994,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_pasado_seguro",
-        category=['existencial','reflexión'],
+        category=['existential','reflection'],
         prompt="When the past seems safer than the future",
         pool=True,
         unlocked=pp_check_unlock("monika_pasado_seguro", required_affection=2800, required_progress=135)
@@ -2031,7 +2031,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_idealizar_a_los_que_amamos",
-        category=['reflexión','emociones'],
+        category=['reflection','emotions'],
         prompt="The way we idealize the people we love",
         pool=True,
         unlocked=pp_check_unlock("monika_idealizar_a_los_que_amamos", required_affection=2900, required_progress=140)
@@ -2067,7 +2067,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_huir_de_lo_que_deseamos",
-        category=['filosofía','emociones'],
+        category=['philosophy','emotions'],
         prompt="Why sometimes we run away from what we want most",
         pool=True,
         unlocked=pp_check_unlock("monika_huir_de_lo_que_deseamos", required_affection=3000, required_progress=145)
@@ -2104,7 +2104,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_finales_abiertos",
-        category=['literatura','filosofía'],
+        category=['literature','philosophy'],
         prompt="How open endings can be beautiful in life and in stories",
         pool=True,
         unlocked=pp_check_unlock("monika_finales_abiertos", required_affection=3100, required_progress=150)
@@ -2139,7 +2139,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_palabras_no_dichas",
-        category=['reflexión','emociones'],
+        category=['reflection','emotions'],
         prompt="The weight of the words we never said",
         pool=True,
         unlocked=pp_check_unlock("monika_palabras_no_dichas", required_affection=3200, required_progress=155)
@@ -2175,7 +2175,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_ser_comprendido",
-        category=['emociones','romance'],
+        category=['emotions','romance'],
         prompt="The relief of being understood without having to explain yourself",
         pool=True,
         unlocked=pp_check_unlock("monika_ser_comprendido", required_affection=3300, required_progress=160)
@@ -2210,7 +2210,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_piensanenti",
-        category=['romance','emociones'],
+        category=['romance','emotions'],
         prompt="The peace of mind that comes from knowing that someone is thinking about you",
         pool=True,
         unlocked=pp_check_unlock("monika_piensanenti", required_affection=3400, required_progress=165)
@@ -2246,7 +2246,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_nostalgia_momentos",
-        category=['reflexión','emociones'],
+        category=['reflection','emotions'],
         prompt="The nostalgia of moments that we didn't know would be important",
         pool=True,
         unlocked=pp_check_unlock("monika_nostalgia_momentos", required_affection=3500, required_progress=170)
@@ -2275,7 +2275,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_alguien_te_espera",
-        category=['romance','emociones'],
+        category=['romance','emotions'],
         prompt="The comfort of knowing that someone is waiting for you",
         pool=True,
         unlocked=pp_check_unlock("monika_alguien_te_espera", required_affection=3000, required_progress=150)
@@ -2307,7 +2307,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_aceptacion_total",
-        category=['romance','emociones'],
+        category=['romance','emotions'],
         prompt="The calm you feel when someone accepts you just the way you are",
         pool=True,
         unlocked=pp_check_unlock("monika_aceptacion_total", required_affection=3200, required_progress=160)
@@ -2335,7 +2335,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_paz_vs_vacio",
-        category=['existencial','reflexión'],
+        category=['existential','reflection'],
         prompt="The difference between being at peace and simply feeling nothing",
         pool=True,
         unlocked=pp_check_unlock("monika_paz_vs_vacio", required_affection=3300, required_progress=165)
@@ -2366,7 +2366,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_silencios_significativos",
-        category=['romance','reflexión'],
+        category=['romance','reflection'],
         prompt="When silence between two people says more than words",
         pool=True,
         unlocked=pp_check_unlock("monika_silencios_significativos", required_affection=3100, required_progress=155)
@@ -2396,7 +2396,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_llorar_alivio",
-        category=['emociones','autocuidado'],
+        category=['emotions','self-care'],
         prompt="The strange relief of crying when you can't take it anymore",
         pool=True,
         unlocked=pp_check_unlock("monika_llorar_alivio", required_affection=3400, required_progress=170)
@@ -2426,7 +2426,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_pedir_ayuda",
-        category=['emociones','autocuidado'],
+        category=['emotions','self-care'],
         prompt="The vulnerability of asking for help when we need it most",
         pool=True,
         unlocked=pp_check_unlock("monika_pedir_ayuda", required_affection=3600, required_progress=175)
@@ -2458,7 +2458,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_todo_es_temporal",
-        category=['existencial','reflexión'],
+        category=['existential','reflection'],
         prompt="The strange comfort of knowing that everything is temporary",
         pool=True,
         unlocked=pp_check_unlock("monika_todo_es_temporal", required_affection=3000, required_progress=150)
@@ -2489,7 +2489,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_miedo_cambiar",
-        category=['existencial','reflexión'],
+        category=['existential','reflection'],
         prompt="The fear of changing when we are no longer who we used to be",
         pool=True,
         unlocked=pp_check_unlock("monika_miedo_cambiar", required_affection=3500, required_progress=170)
@@ -2520,7 +2520,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_conexiones_inesperadas",
-        category=['romance','reflexión'],
+        category=['romance','reflection'],
         prompt="The beauty of connections that are born without planning",
         pool=True,
         unlocked=pp_check_unlock("monika_conexiones_inesperadas", required_affection=2800, required_progress=140)
@@ -2551,7 +2551,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_no_fingir",
-        category=['romance','emociones'],
+        category=['romance','emotions'],
         prompt="The relief of finding someone you don't have to pretend with",
         pool=True,
         unlocked=pp_check_unlock("monika_no_fingir", required_affection=3700, required_progress=180)
@@ -2578,7 +2578,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_tiempo_cambia",
-        category=['existencial','reflexión'],
+        category=['existential','reflection'],
         prompt="The way time changes what we feel… and what we remember",
         pool=True,
         unlocked=pp_check_unlock("monika_tiempo_cambia", required_affection=3200, required_progress=160)
@@ -2608,7 +2608,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_carinio_acciones",
-        category=['romance','emociones'],
+        category=['romance','emotions'],
         prompt="When affection is shown more with actions than words",
         pool=True,
         unlocked=pp_check_unlock("monika_carinio_acciones", required_affection=3300, required_progress=165)
@@ -2635,7 +2635,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_evitar_dolor",
-        category=['emociones','reflexión'],
+        category=['emotions','reflection'],
         prompt="The way we avoid thinking about what really hurts us",
         pool=True,
         unlocked=pp_check_unlock("monika_evitar_dolor", required_affection=3400, required_progress=170)
@@ -2665,7 +2665,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_amor_cambia",
-        category=['romance','reflexión'],
+        category=['romance','reflection'],
         prompt="The way love changes us even when we don't want to admit it",
         pool=True,
         unlocked=pp_check_unlock("monika_amor_cambia", required_affection=3800, required_progress=185)
@@ -2695,7 +2695,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_cansancio_emocional",
-        category=['emociones','autocuidado'],
+        category=['emotions','self-care'],
         prompt="The emotional exhaustion that is not noticeable on the outside",
         pool=True,
         unlocked=pp_check_unlock("monika_cansancio_emocional", required_affection=3500, required_progress=170)
@@ -2726,7 +2726,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_buscar_senales",
-        category=['reflexión','existencial'],
+        category=['reflection','existential'],
         prompt="The way we look for signs when we don't know what to decide",
         pool=True,
         unlocked=pp_check_unlock("monika_buscar_senales", required_affection=2900, required_progress=145)
@@ -2757,7 +2757,7 @@ init 5 python:
     addEvent(Event(
         persistent.event_database,
         eventlabel="monika_no_tener_respuestas",
-        category=['autocuidado','emociones'],
+        category=['self-care','emotions'],
         prompt="The relief of knowing that you don't have to have all the answers today",
         pool=True,
         unlocked=pp_check_unlock("monika_no_tener_respuestas", required_affection=2700, required_progress=135)
