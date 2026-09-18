@@ -3,7 +3,7 @@ init -990 python in mas_submod_utils:
         author="Muuu",
         name="Pen and Poems 2",
         description="Un mod sencillo que añade mas diálogos.",
-        version="2.0.0",
+        version="2.0.1",
         dependencies={},
         settings_pane=None,
         version_updates={}
@@ -16,7 +16,7 @@ init -990 python in mas_submod_utils:
 # =============================================================================
 
 init 5 python:
-    if not hasattr(persistent, "pp2_progreso"):
+    if not hasattr(persistent, "pp2_progreso") or not isinstance(persistent.pp2_progreso, (int, long)):
         persistent.pp2_progreso = 0  # Progreso general del mod (0-102)
     if not hasattr(persistent, "pp2_minijuego_stats"):
         persistent.pp2_minijuego_stats = {"wins": 0, "losses": 0, "played": 0}
@@ -2483,7 +2483,7 @@ label pp2_test_elemento:
 
 # 96 - Test: Arquetipo junguiano (desbloqueable >1500 afecto)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personalidad', 'psicologia'], prompt="Test: Descubre tu arquetipo junguiano — El Héroe, El Sabio, El Cuidador, El Explorador...", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_arquetipo", category=['test', 'personalidad', 'psicología'], prompt="Test: Descubre tu arquetipo junguiano — El Héroe, El Sabio, El Cuidador, El Explorador...", pool=True, unlocked=False))
 
 label pp2_test_arquetipo:
     $ scores = {"Heroe": 0, "Sabio": 0, "Cuidador": 0, "Explorador": 0, "Creador": 0, "Gobernante": 0}
@@ -2658,7 +2658,7 @@ label pp2_test_lenguaje_amor:
 
 # 98 - Test: Estilo de aprendizaje (desbloqueable >3000 afecto)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estilo_aprendizaje", category=['test', 'personalidad', 'educacion'], prompt="Test: ¿Cómo aprendes mejor? — Visual, Auditivo, Kinestésico, Lectura/Escritura", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estilo_aprendizaje", category=['test', 'personalidad', 'educación'], prompt="Test: ¿Cómo aprendes mejor? — Visual, Auditivo, Kinestésico, Lectura/Escritura", pool=True, unlocked=False))
 
 label pp2_test_estilo_aprendizaje:
     $ scores = {"Visual": 0, "Auditivo": 0, "Kinestesico": 0, "Lectura": 0}
@@ -2729,7 +2729,7 @@ label pp2_test_estilo_aprendizaje:
 
 # 99 - Test: Estación del alma (desbloqueable >5000 afecto)
 init 5 python:
-    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estacion_alma", category=['test', 'personalidad', 'filosofia'], prompt="Test: ¿Qué estación habita tu alma? — Primavera, Verano, Otoño, Invierno", pool=True, unlocked=False))
+    addEvent(Event(persistent.event_database, eventlabel="pp2_test_estacion_alma", category=['test', 'personalidad', 'filosofía'], prompt="Test: ¿Qué estación habita tu alma? — Primavera, Verano, Otoño, Invierno", pool=True, unlocked=False))
 
 label pp2_test_estacion_alma:
     $ scores = {"Primavera": 0, "Verano": 0, "Otoño": 0, "Invierno": 0}
@@ -2928,6 +2928,13 @@ init 5 python:
     }
 
     for eventlabel, requirements in pp2_locked_event_requirements.items():
-        event = persistent.event_database.get(eventlabel)
-        if event is not None:
-            event.unlocked = pp2_check_unlock(eventlabel, requirements[0], requirements[1])
+        event_data = persistent.event_database.get(eventlabel)
+        if event_data is not None:
+            event = event_data
+            if isinstance(event_data, tuple):
+                for event_item in event_data:
+                    if hasattr(event_item, "unlocked"):
+                        event = event_item
+                        break
+            if hasattr(event, "unlocked"):
+                event.unlocked = pp2_check_unlock(eventlabel, requirements[0], requirements[1])
