@@ -1,6 +1,6 @@
 init -990 python in mas_submod_utils:
     Submod(
-        author="Moo",
+        author="Muuu",
         name="Pen and Poems 2",
         description="A simple mod that adds more dialogues.",
         version="2.0.1",
